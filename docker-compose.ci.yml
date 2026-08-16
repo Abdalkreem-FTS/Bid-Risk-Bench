@@ -1,0 +1,4 @@
+services:
+  ollama:
+    volumes:
+      - ./.ollama-cache:/root/.ollama
