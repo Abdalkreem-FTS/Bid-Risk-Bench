@@ -1,0 +1,61 @@
+[project]
+name = "bidrisk-ml"
+version = "0.1.0"
+description = "Bid risk scoring and grounded LLM answers over gRPC"
+requires-python = ">=3.12"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+# Generated protobuf code is not ours to style.
+extend-exclude = ["generated"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle
+    "F",   # pyflakes
+    "I",   # import sorting
+    "N",   # naming
+    "UP",  # modern syntax
+    "B",   # likely bugs
+    "SIM", # simplifications
+    "RUF",
+]
+# These characters are intentional in the text the service shows people: "3.4× the current price"
+# reads better than "3.4x", and the contract test uses non-ASCII on purpose to prove Python and C#
+# agree on UTF-8. Without this, ruff flags every one of them as a possible homoglyph attack.
+allowed-confusables = ["×", "≥", "≤", "·"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+exclude = ["generated/"]
+# The generated protobuf modules ship .pyi stubs, but grpc's do not.
+[[tool.mypy.overrides]]
+module = [
+    "grpc.*",
+    "grpc_health.*",
+    "grpc_reflection.*",
+    "google.protobuf.*",
+    "sklearn.*",
+    "joblib.*",
+    "bidrisk.*",
+]
+ignore_missing_imports = true
+
+# The generated *_pb2_grpc servicer base classes are untyped, so implementing one is "subclassing
+# Any". Refusing that would mean not using the generated code at all.
+[[tool.mypy.overrides]]
+module = ["server"]
+disallow_subclassing_any = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Both the package and the generated code must be importable without installing anything.
+pythonpath = [".", "generated"]
+# Zero warnings: a DeprecationWarning from a dependency fails the run, same as a compiler warning.
+filterwarnings = ["error"]
+asyncio_mode = "auto"
+# Pinned explicitly rather than inherited: pytest-asyncio warns when it is unset, and the default
+# is changing in a future release.
+asyncio_default_fixture_loop_scope = "function"
