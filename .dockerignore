@@ -1,0 +1,22 @@
+# Keep the build context small and, more importantly, honest: the generated gRPC code is excluded
+# so an image can never quietly depend on whatever happens to be on the developer's machine. The
+# build regenerates it from proto/ in its own stage.
+
+.git
+.github
+.ollama-cache
+docs
+
+services/ml/generated
+services/contracts/Generated
+
+models
+data/synthetic_bids.csv
+bench/results
+
+**/__pycache__
+**/.pytest_cache
+**/.mypy_cache
+**/.ruff_cache
+**/bin
+**/obj
