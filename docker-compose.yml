@@ -1,0 +1,162 @@
+name: bid-risk-bench
+
+services:
+  postgres:
+    image: postgres:${POSTGRES_IMAGE_TAG}
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M
+
+  ollama:
+    image: ollama/ollama:${OLLAMA_IMAGE_TAG}
+    volumes:
+      # Named volume, so the model is pulled once instead of on every start.
+      - ollama_models:/root/.ollama
+    ports:
+      - "${OLLAMA_PORT}:11434"
+    healthcheck:
+      # Healthy means the model is there, not just that the process is up.
+      test: ["CMD-SHELL", "ollama list | grep -Fq '${OLLAMA_MODEL}' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      # Long enough for a first model download. Costs nothing once the volume is warm.
+      start_period: 900s
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 4G
+
+  ollama-init:
+    image: ollama/ollama:${OLLAMA_IMAGE_TAG}
+    depends_on:
+      ollama:
+        # Started, not healthy. ollama only goes healthy after this job pulls the model.
+        condition: service_started
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        set -e
+        until ollama list >/dev/null 2>&1; do echo "waiting for ollama to accept connections…"; sleep 2; done
+        if ollama list | grep -Fq '${OLLAMA_MODEL}'; then
+          echo "model ${OLLAMA_MODEL} already in the volume — nothing to pull"
+        else
+          echo "pulling ${OLLAMA_MODEL} — first run only, and the slowest step of a cold start"
+          started=$$(date +%s)
+          ollama pull '${OLLAMA_MODEL}'
+          echo "pulled ${OLLAMA_MODEL} in $$(( $$(date +%s) - started ))s"
+        fi
+    restart: "no"
+
+  auction-service:
+    build:
+      context: .
+      dockerfile: services/auction/Dockerfile
+      target: runtime
+      args:
+        DOTNET_SDK_TAG: ${DOTNET_SDK_TAG}
+        DOTNET_RUNTIME_TAG: ${DOTNET_RUNTIME_TAG}
+        BUF_IMAGE_TAG: ${BUF_IMAGE_TAG}
+    env_file: .env
+    depends_on:
+      # Only the database. Not ml-service: the two call each other, which would deadlock.
+      postgres:
+        condition: service_healthy
+    ports:
+      - "${AUCTION_GRPC_PORT}:${AUCTION_GRPC_PORT}"
+    healthcheck:
+      test: ["CMD", "dotnet", "BidRisk.Auction.dll", "--healthcheck"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M
+
+  ml-service:
+    build:
+      context: .
+      dockerfile: services/ml/Dockerfile
+      target: runtime
+      args:
+        PYTHON_IMAGE_TAG: ${PYTHON_IMAGE_TAG}
+        BUF_IMAGE_TAG: ${BUF_IMAGE_TAG}
+        TRAIN_SAMPLES: ${TRAIN_SAMPLES}
+        TRAIN_SEED: ${TRAIN_SEED}
+        TRAIN_SUSPICIOUS_RATE: ${TRAIN_SUSPICIOUS_RATE}
+        TRAIN_LABEL_NOISE: ${TRAIN_LABEL_NOISE}
+        RISK_REJECT_THRESHOLD: ${RISK_REJECT_THRESHOLD}
+    env_file: .env
+    depends_on:
+      # The init job exiting non-zero surfaces a failed pull. Healthy proves the model is there.
+      ollama-init:
+        condition: service_completed_successfully
+      ollama:
+        condition: service_healthy
+    ports:
+      - "${ML_GRPC_PORT}:${ML_GRPC_PORT}"
+    healthcheck:
+      test: ["CMD", "python", "healthcheck.py"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 15s
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M
+
+  gateway:
+    build:
+      context: .
+      dockerfile: services/gateway/Dockerfile
+      target: runtime
+      args:
+        DOTNET_SDK_TAG: ${DOTNET_SDK_TAG}
+        DOTNET_RUNTIME_TAG: ${DOTNET_RUNTIME_TAG}
+        BUF_IMAGE_TAG: ${BUF_IMAGE_TAG}
+    env_file: .env
+    depends_on:
+      # The front door. Nothing it can answer until both services behind it are ready.
+      auction-service:
+        condition: service_healthy
+      ml-service:
+        condition: service_healthy
+    ports:
+      - "${GATEWAY_HTTP_PORT}:${GATEWAY_HTTP_PORT}"
+    healthcheck:
+      test: ["CMD", "dotnet", "BidRisk.Gateway.dll", "--healthcheck"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M
+
+volumes:
+  postgres_data:
+  ollama_models:
