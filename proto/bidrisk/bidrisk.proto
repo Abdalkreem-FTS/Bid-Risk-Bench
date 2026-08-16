@@ -1,0 +1,217 @@
+syntax = "proto3";
+
+package bidrisk;
+
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "BidRisk";
+
+enum RiskLevel {
+  RISK_LEVEL_UNSPECIFIED = 0;
+  RISK_LEVEL_LOW = 1;
+  RISK_LEVEL_MEDIUM = 2;
+  RISK_LEVEL_HIGH = 3;
+}
+
+enum RejectReason {
+  REJECT_REASON_UNSPECIFIED = 0;
+  REJECT_REASON_BELOW_RESERVE = 1;
+  REJECT_REASON_BELOW_CURRENT_PRICE = 2;
+  REJECT_REASON_LOT_CLOSED = 3;
+  REJECT_REASON_HIGH_RISK = 4;
+
+  REJECT_REASON_SCORING_UNAVAILABLE = 5;
+}
+
+message Lot {
+  int64 id = 1;
+  string title = 2;
+  double reserve_price = 3;
+  double current_price = 4;
+  int32 bid_count = 5;
+  google.protobuf.Timestamp closes_at = 6;
+  bool closed = 7;
+}
+
+message Bid {
+  int64 id = 1;
+  int64 lot_id = 2;
+  int64 bidder_id = 3;
+  double amount = 4;
+  google.protobuf.Timestamp placed_at = 5;
+
+  double risk_score = 6;
+  RiskLevel risk_level = 7;
+  bool accepted = 8;
+  RejectReason reject_reason = 9;
+
+  repeated string risk_reasons = 10;
+}
+
+message RiskAssessment {
+  double score = 1;
+  RiskLevel level = 2;
+
+  repeated string reasons = 3;
+
+  double inference_ms = 4;
+  string model_version = 5;
+}
+
+message BidContext {
+  double amount = 1;
+  double current_price = 2;
+  google.protobuf.Timestamp bid_time = 3;
+
+  google.protobuf.Timestamp previous_bid_time = 4;
+  int32 bidder_bids_on_lot = 5;
+  int32 lot_total_bids = 6;
+  google.protobuf.Timestamp bidder_account_created = 7;
+}
+
+service AuctionService {
+  rpc GetLot(GetLotRequest) returns (GetLotResponse);
+  rpc ListLots(ListLotsRequest) returns (ListLotsResponse);
+  rpc PlaceBid(PlaceBidRequest) returns (PlaceBidResponse);
+  rpc GetBidHistory(GetBidHistoryRequest) returns (GetBidHistoryResponse);
+
+  rpc GetBidHistoryBatch(GetBidHistoryBatchRequest) returns (GetBidHistoryBatchResponse);
+}
+
+message GetLotRequest {
+  int64 lot_id = 1;
+}
+
+message GetLotResponse {
+  Lot lot = 1;
+}
+
+message ListLotsRequest {
+  int32 first = 1;
+}
+
+message ListLotsResponse {
+  repeated Lot lots = 1;
+}
+
+message GetBidHistoryRequest {
+  int64 lot_id = 1;
+  int32 limit = 2;
+}
+
+message GetBidHistoryResponse {
+  repeated Bid bids = 1;
+}
+
+message GetBidHistoryBatchRequest {
+  repeated int64 lot_ids = 1;
+  int32 limit_per_lot = 2;
+}
+
+message LotBidHistory {
+  int64 lot_id = 1;
+  repeated Bid bids = 2;
+}
+
+message GetBidHistoryBatchResponse {
+  repeated LotBidHistory histories = 1;
+}
+
+message PlaceBidRequest {
+  int64 lot_id = 1;
+  int64 bidder_id = 2;
+  double amount = 3;
+}
+
+message BidAccepted {
+  Bid bid = 1;
+  RiskAssessment risk = 2;
+}
+
+message BidRejected {
+  RejectReason reason = 1;
+  string message = 2;
+
+  RiskAssessment risk = 3;
+}
+
+message PlaceBidResponse {
+  oneof outcome {
+    BidAccepted accepted = 1;
+    BidRejected rejected = 2;
+  }
+}
+
+service RiskService {
+
+  rpc PredictBidRisk(PredictBidRiskRequest) returns (PredictBidRiskResponse);
+
+  rpc PredictBatch(PredictBatchRequest) returns (PredictBatchResponse);
+
+  rpc AssessLotRisk(AssessLotRiskRequest) returns (AssessLotRiskResponse);
+
+  rpc AssessLotRiskBatch(AssessLotRiskBatchRequest) returns (AssessLotRiskBatchResponse);
+
+  rpc AskAboutData(AskAboutDataRequest) returns (stream AskAboutDataResponse);
+}
+
+message PredictBidRiskRequest {
+  BidContext context = 1;
+}
+
+message PredictBidRiskResponse {
+  RiskAssessment assessment = 1;
+}
+
+message PredictBatchRequest {
+  repeated BidContext contexts = 1;
+}
+
+message PredictBatchResponse {
+  repeated RiskAssessment assessments = 1;
+
+  double total_inference_ms = 2;
+}
+
+message LotRisk {
+  int64 lot_id = 1;
+  RiskLevel level = 2;
+  double max_score = 3;
+  double mean_score = 4;
+  int32 scored_bids = 5;
+}
+
+message AssessLotRiskRequest {
+  int64 lot_id = 1;
+}
+
+message AssessLotRiskResponse {
+  LotRisk risk = 1;
+}
+
+message AssessLotRiskBatchRequest {
+  repeated int64 lot_ids = 1;
+}
+
+message AssessLotRiskBatchResponse {
+  repeated LotRisk risks = 1;
+}
+
+message AskAboutDataRequest {
+  string question = 1;
+
+  string broadcast_id = 2;
+}
+
+message StreamStats {
+  double time_to_first_token_ms = 1;
+  double total_ms = 2;
+  int32 token_count = 3;
+}
+
+message AskAboutDataResponse {
+  oneof payload {
+    string token = 1;
+    StreamStats stats = 2;
+  }
+}
