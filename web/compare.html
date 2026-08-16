@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transport race — Bid Risk Bench</title>
+<!-- Both panels send the same broadcastId, so the model runs once and only the pipe differs. -->
+<style>
+  :root {
+    --bg: #12151a; --panel: #1a1f27; --line: #2b323d;
+    --ink: #e6e9ef; --muted: #8b94a3;
+    --graphql: #e535ab; --ws: #4ec9b0; --warn: #f0a35e;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 24px; background: var(--bg); color: var(--ink);
+    font: 15px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  header { max-width: 1200px; margin: 0 auto 20px; }
+  h1 { font-size: 20px; margin: 0 0 4px; font-weight: 650; letter-spacing: -0.01em; }
+  .sub { color: var(--muted); font-size: 13px; margin: 0; }
+  .controls {
+    max-width: 1200px; margin: 0 auto 18px; display: flex; gap: 10px; flex-wrap: wrap;
+  }
+  input[type=text] {
+    flex: 1 1 420px; padding: 11px 13px; border-radius: 8px;
+    border: 1px solid var(--line); background: var(--panel); color: var(--ink);
+    font-size: 14px;
+  }
+  input[type=text]:focus { outline: 2px solid #3b82f6; outline-offset: -1px; }
+  button {
+    padding: 11px 20px; border-radius: 8px; border: 1px solid var(--line);
+    background: #232a34; color: var(--ink); font-size: 14px; font-weight: 550; cursor: pointer;
+  }
+  button:hover:not(:disabled) { background: #2b333f; }
+  button:disabled { opacity: .5; cursor: not-allowed; }
+  .presets { max-width: 1200px; margin: 0 auto 18px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .presets button { padding: 6px 12px; font-size: 12.5px; font-weight: 450; color: var(--muted); }
+  .panels {
+    max-width: 1200px; margin: 0 auto; display: grid; gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  }
+  .panel {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+    overflow: hidden; display: flex; flex-direction: column;
+  }
+  .panel-head {
+    padding: 12px 16px; border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; gap: 9px;
+  }
+  .dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+  .graphql .dot { background: var(--graphql); }
+  .ws .dot { background: var(--ws); }
+  .panel-head h2 { font-size: 14px; margin: 0; font-weight: 600; }
+  .panel-head .path { color: var(--muted); font-size: 12px; font-family: var(--mono); }
+  .metrics {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--line); border-bottom: 1px solid var(--line);
+  }
+  .metric { background: var(--panel); padding: 10px 14px; }
+  .metric .label {
+    color: var(--muted); font-size: 10.5px; text-transform: uppercase;
+    letter-spacing: .06em; margin-bottom: 3px;
+  }
+  .metric .value { font-family: var(--mono); font-size: 16px; font-variant-numeric: tabular-nums; }
+  .answer {
+    padding: 16px; min-height: 220px; white-space: pre-wrap; word-break: break-word;
+    font-size: 14.5px; line-height: 1.6;
+  }
+  .answer:empty::before { content: "waiting…"; color: var(--muted); }
+  .status { padding: 9px 16px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); }
+  .cursor {
+    display: inline-block; width: 7px; height: 1.05em; vertical-align: text-bottom;
+    background: currentColor; opacity: .65; animation: blink 1s steps(2) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }
+  footer {
+    max-width: 1200px; margin: 20px auto 0; color: var(--muted); font-size: 12.5px;
+  }
+  code { font-family: var(--mono); color: var(--ink); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Transport race</h1>
+  <p class="sub">
+    One question, one LLM generation, two pipes. Both panels pass the same
+    <code>broadcastId</code>, so ml-service runs the model once — any difference you see is the
+    transport, not the model.
+  </p>
+</header>
+
+<div class="controls">
+  <input id="question" type="text" value="Summarise the bidding activity on lot 38."
+         aria-label="Question about the auction data">
+  <button id="ask">Ask both</button>
+</div>
+
+<div class="presets">
+  <button data-q="Summarise the bidding activity on lot 38.">lot summary</button>
+  <button data-q="Why was this bid flagged as risky on lot 38?">why flagged</button>
+  <button data-q="Which lots look most suspicious right now, and why?">most suspicious</button>
+</div>
+
+<div class="panels">
+  <section class="panel graphql">
+    <div class="panel-head">
+      <span class="dot"></span>
+      <h2>GraphQL subscription</h2>
+      <span class="path">graphql-ws → /graphql</span>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="label">first token</div><div class="value" id="gql-ttft">—</div></div>
+      <div class="metric"><div class="label">total</div><div class="value" id="gql-total">—</div></div>
+      <div class="metric"><div class="label">tokens</div><div class="value" id="gql-tokens">—</div></div>
+    </div>
+    <div class="answer" id="gql-answer"></div>
+    <div class="status" id="gql-status">idle</div>
+  </section>
+
+  <section class="panel ws">
+    <div class="panel-head">
+      <span class="dot"></span>
+      <h2>Raw WebSocket</h2>
+      <span class="path">JSON frames → /ws</span>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="label">first token</div><div class="value" id="ws-ttft">—</div></div>
+      <div class="metric"><div class="label">total</div><div class="value" id="ws-total">—</div></div>
+      <div class="metric"><div class="label">tokens</div><div class="value" id="ws-tokens">—</div></div>
+    </div>
+    <div class="answer" id="ws-answer"></div>
+    <div class="status" id="ws-status">idle</div>
+  </section>
+</div>
+
+<footer>
+  Times are measured in this page, from clicking Ask to each token arriving. The server reports its
+  own timing in the final message; the gap between the two is what the transport cost.
+</footer>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const wsUrl = (path) =>
+  `${location.protocol === "https:" ? "wss" : "ws"}://${location.host}${path}`;
+
+/** One panel's live state: text, counters, and a blinking cursor while streaming. */
+function panel(prefix) {
+  const answer = $(`${prefix}-answer`);
+  const status = $(`${prefix}-status`);
+  let started = 0, tokens = 0, text = "";
+
+  const render = (streaming) => {
+    answer.textContent = text;
+    if (streaming) answer.insertAdjacentHTML("beforeend", '<span class="cursor"></span>');
+  };
+
+  return {
+    begin() {
+      started = performance.now();
+      tokens = 0; text = "";
+      $(`${prefix}-ttft`).textContent = "—";
+      $(`${prefix}-total`).textContent = "—";
+      $(`${prefix}-tokens`).textContent = "—";
+      status.textContent = "connecting…";
+      render(true);
+    },
+    token(value) {
+      if (tokens === 0) {
+        $(`${prefix}-ttft`).textContent = `${Math.round(performance.now() - started)} ms`;
+        status.textContent = "streaming…";
+      }
+      tokens += 1;
+      text += value;
+      $(`${prefix}-tokens`).textContent = tokens;
+      render(true);
+    },
+    done(serverStats) {
+      $(`${prefix}-total`).textContent = `${Math.round(performance.now() - started)} ms`;
+      render(false);
+      status.textContent = serverStats
+        ? `done · server saw ${Math.round(serverStats.ttft)} ms to first token, ` +
+          `${Math.round(serverStats.total)} ms total`
+        : "done";
+    },
+    fail(reason) {
+      status.textContent = `failed: ${reason}`;
+      render(false);
+    },
+  };
+}
+
+const gql = panel("gql");
+const raw = panel("ws");
+
+// The gateway has to serve this page. Opened straight from disk, location.host is empty, the
+// socket URL becomes ws:///graphql and both panels fail with nothing to connect to.
+const servedByGateway = Boolean(location.host);
+if (!servedByGateway) {
+  const message = "open this page at http://localhost:8080/compare.html, not from the file system";
+  gql.fail(message);
+  raw.fail(message);
+}
+
+/** GraphQL subscription over the graphql-ws protocol, hand-rolled to keep the page dependency-free. */
+function askOverGraphQL(question, broadcastId) {
+  gql.begin();
+  const socket = new WebSocket(wsUrl("/graphql"), "graphql-transport-ws");
+
+  socket.onopen = () => socket.send(JSON.stringify({ type: "connection_init" }));
+
+  socket.onmessage = (event) => {
+    const message = JSON.parse(event.data);
+
+    if (message.type === "connection_ack") {
+      socket.send(JSON.stringify({
+        id: "1",
+        type: "subscribe",
+        payload: {
+          query: `subscription Ask($q: String!, $b: String) {
+                    askAboutData(question: $q, broadcastId: $b) {
+                      token done timeToFirstTokenMs totalMs tokenCount
+                    }
+                  }`,
+          variables: { q: question, b: broadcastId },
+        },
+      }));
+      return;
+    }
+
+    if (message.type === "next") {
+      const chunk = message.payload.data.askAboutData;
+      if (chunk.done) {
+        gql.done({ ttft: chunk.timeToFirstTokenMs, total: chunk.totalMs });
+      } else if (chunk.token) {
+        gql.token(chunk.token);
+      }
+      return;
+    }
+
+    if (message.type === "error") {
+      gql.fail(JSON.stringify(message.payload));
+    } else if (message.type === "complete") {
+      socket.close();
+    }
+  };
+
+  socket.onerror = () => gql.fail("socket error");
+}
+
+/** The baseline: send one JSON object, receive one frame per token. */
+function askOverRawSocket(question, broadcastId) {
+  raw.begin();
+  const socket = new WebSocket(wsUrl("/ws"));
+
+  socket.onopen = () => socket.send(JSON.stringify({ question, broadcastId }));
+
+  socket.onmessage = (event) => {
+    const frame = JSON.parse(event.data);
+    if (frame.error) {
+      raw.fail(frame.error);
+    } else if (frame.done) {
+      raw.done({ ttft: frame.timeToFirstTokenMs, total: frame.totalMs });
+      socket.close();
+    } else if (frame.token) {
+      raw.token(frame.token);
+    }
+  };
+
+  socket.onerror = () => raw.fail("socket error");
+}
+
+function ask() {
+  if (!servedByGateway) return;
+
+  const question = $("question").value.trim();
+  if (!question) return;
+
+  // The same id on both sides: ml-service generates once and both panels read the same tokens.
+  const broadcastId = `compare-${Date.now()}`;
+
+  $("ask").disabled = true;
+  askOverGraphQL(question, broadcastId);
+  askOverRawSocket(question, broadcastId);
+  setTimeout(() => { $("ask").disabled = false; }, 1500);
+}
+
+$("ask").addEventListener("click", ask);
+$("question").addEventListener("keydown", (event) => { if (event.key === "Enter") ask(); });
+document.querySelectorAll(".presets button").forEach((button) =>
+  button.addEventListener("click", () => {
+    $("question").value = button.dataset.q;
+    ask();
+  }));
+</script>
+</body>
+</html>
