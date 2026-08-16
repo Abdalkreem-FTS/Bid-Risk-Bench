@@ -1,0 +1,24 @@
+<Solution>
+  <Folder Name="/services/" />
+  <Folder Name="/services/auction.tests/">
+    <Project Path="services/auction.tests/BidRisk.Auction.Tests.csproj" />
+  </Folder>
+  <Folder Name="/services/auction/">
+    <Project Path="services/auction/BidRisk.Auction.csproj" />
+  </Folder>
+  <Folder Name="/services/contracts.tests/">
+    <Project Path="services/contracts.tests/BidRisk.Contracts.Tests.csproj" />
+  </Folder>
+  <Folder Name="/services/contracts/">
+    <Project Path="services/contracts/BidRisk.Contracts.csproj" />
+  </Folder>
+  <Folder Name="/services/gateway/">
+    <Project Path="services/gateway/BidRisk.Gateway.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/BidRisk.SystemTests/BidRisk.SystemTests.csproj" />
+  </Folder>
+  <Folder Name="/tools/">
+    <Project Path="tools/BidRisk.Bench/BidRisk.Bench.csproj" />
+  </Folder>
+</Solution>
