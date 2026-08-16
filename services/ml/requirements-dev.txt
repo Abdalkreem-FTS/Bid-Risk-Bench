@@ -1,0 +1,9 @@
+-r requirements.txt
+
+pytest==8.3.4
+pytest-asyncio==0.24.0
+ruff==0.8.4
+mypy==1.13.0
+
+# Nothing else: the smoke tests, the benchmark harness and the report's charts are all .NET now,
+# so the WebSocket client and the plotting library they needed are gone with them.
