@@ -1,0 +1,12 @@
+version: v2
+modules:
+  - path: proto
+lint:
+  use:
+    - STANDARD
+  except:
+    # There is one version of this contract, so the suffix would be ceremony every import carries.
+    - PACKAGE_VERSION_SUFFIX
+breaking:
+  use:
+    - FILE
