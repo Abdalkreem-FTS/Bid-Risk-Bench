@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>BidRisk.Auction</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Evolve" Version="3.2.0" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.83.0" />
+    <PackageReference Include="Grpc.AspNetCore.HealthChecks" Version="2.83.0" />
+    <PackageReference Include="Grpc.AspNetCore.Server.Reflection" Version="2.83.0" />
+    <PackageReference Include="Grpc.Net.ClientFactory" Version="2.83.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\contracts\BidRisk.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>
