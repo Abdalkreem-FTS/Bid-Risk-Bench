@@ -1,0 +1,34 @@
+{
+  "payloads": [
+    {
+      "message": "Lot",
+      "protobuf_bytes": 73,
+      "json_compact_bytes": 176,
+      "json_indented_bytes": 188,
+      "json_compact_ratio": 2.41,
+      "repeat": 20,
+      "protobuf_bytes_x_repeat": 1460,
+      "json_compact_bytes_x_repeat": 3520
+    },
+    {
+      "message": "RiskAssessment",
+      "protobuf_bytes": 145,
+      "json_compact_bytes": 260,
+      "json_indented_bytes": 284,
+      "json_compact_ratio": 1.79,
+      "repeat": 500,
+      "protobuf_bytes_x_repeat": 72500,
+      "json_compact_bytes_x_repeat": 130000
+    },
+    {
+      "message": "BidContext",
+      "protobuf_bytes": 64,
+      "json_compact_bytes": 248,
+      "json_indented_bytes": 262,
+      "json_compact_ratio": 3.88,
+      "repeat": 500,
+      "protobuf_bytes_x_repeat": 32000,
+      "json_compact_bytes_x_repeat": 124000
+    }
+  ]
+}

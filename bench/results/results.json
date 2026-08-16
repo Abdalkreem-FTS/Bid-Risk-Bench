@@ -1,0 +1,3786 @@
+{
+  "generated_at": "2026-08-16T12:32:13+00:00",
+  "generated_by": "scripts/bench.sh — do not edit by hand",
+  "runs_per_scenario": 3,
+  "host": {
+    "platform": "Ubuntu 24.04.4 LTS",
+    "machine": "x64",
+    "dotnet": ".NET 10.0.11"
+  },
+  "instability_threshold": 0.1,
+  "minimum_absolute_spread_ms": 3,
+  "unstable_scenarios": [
+    "lots_graphql_batched"
+  ],
+  "scenarios": {
+    "fanout_50_graphql": {
+      "runs": [
+        {
+          "tool": "k6",
+          "count": 50,
+          "ok": 50,
+          "rps": 3.820875794533402,
+          "k6_data_sent_bytes": 30900,
+          "k6_data_received_bytes": 566090,
+          "p50_ms": 13077,
+          "p95_ms": 13085,
+          "p99_ms": 13085,
+          "mean_ms": 13078.4,
+          "ttft_p50_ms": 10527,
+          "ttft_p95_ms": 10527,
+          "total_p50_ms": 13077,
+          "total_p95_ms": 13085,
+          "server_ttft_p50_ms": 10510.067368002638,
+          "server_ttft_p95_ms": 10510.067368002638,
+          "tokens_received": 3550,
+          "answers_completed": 50,
+          "wall_ms": 13583,
+          "bytes": {
+            "gateway_rx": 581363,
+            "gateway_tx": 907107,
+            "auction-service_rx": 10612,
+            "auction-service_tx": 4558,
+            "ml-service_rx": 101198,
+            "ml-service_tx": 325067,
+            "ollama_rx": 10594,
+            "ollama_tx": 16416,
+            "postgres_rx": 4151,
+            "postgres_tx": 7234
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 10.2,
+              "cpu_pct_max": 15.3,
+              "mem_mb_max": 87
+            },
+            "ml-service": {
+              "cpu_pct_mean": 5.9,
+              "cpu_pct_max": 18,
+              "mem_mb_max": 101.8
+            },
+            "auction-service": {
+              "cpu_pct_mean": 3.3,
+              "cpu_pct_max": 9.4,
+              "mem_mb_max": 92.8
+            },
+            "postgres": {
+              "cpu_pct_mean": 1.5,
+              "cpu_pct_max": 2.9,
+              "mem_mb_max": 60.7
+            },
+            "ollama": {
+              "cpu_pct_mean": 145,
+              "cpu_pct_max": 199.9,
+              "mem_mb_max": 1337.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.8,
+              "cpu_pct_max": 2.6,
+              "mem_mb_max": 8.4
+            },
+            "magical_taussig": {
+              "cpu_pct_mean": 0.4,
+              "cpu_pct_max": 0.4,
+              "mem_mb_max": 22.4
+            }
+          }
+        },
+        {
+          "tool": "k6",
+          "count": 50,
+          "ok": 50,
+          "rps": 3.6648074447141186,
+          "k6_data_sent_bytes": 30900,
+          "k6_data_received_bytes": 674960,
+          "p50_ms": 13641,
+          "p95_ms": 13642,
+          "p99_ms": 13642,
+          "mean_ms": 13640.86,
+          "ttft_p50_ms": 10603,
+          "ttft_p95_ms": 10603,
+          "total_p50_ms": 13641,
+          "total_p95_ms": 13642,
+          "server_ttft_p50_ms": 10570.436870002595,
+          "server_ttft_p95_ms": 10570.436870002595,
+          "tokens_received": 4250,
+          "answers_completed": 50,
+          "wall_ms": 14132,
+          "bytes": {
+            "gateway_rx": 712675,
+            "gateway_tx": 1048821,
+            "auction-service_rx": 10590,
+            "auction-service_tx": 4525,
+            "ml-service_rx": 91082,
+            "ml-service_tx": 388138,
+            "ollama_rx": 11527,
+            "ollama_tx": 19509,
+            "postgres_rx": 4151,
+            "postgres_tx": 7212
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 8.6,
+              "cpu_pct_max": 21.8,
+              "mem_mb_max": 93.4
+            },
+            "ml-service": {
+              "cpu_pct_mean": 8.6,
+              "cpu_pct_max": 23,
+              "mem_mb_max": 115.5
+            },
+            "auction-service": {
+              "cpu_pct_mean": 5,
+              "cpu_pct_max": 19.8,
+              "mem_mb_max": 92.7
+            },
+            "postgres": {
+              "cpu_pct_mean": 0.8,
+              "cpu_pct_max": 3.3,
+              "mem_mb_max": 59.9
+            },
+            "ollama": {
+              "cpu_pct_mean": 187.2,
+              "cpu_pct_max": 199.9,
+              "mem_mb_max": 1337.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.9,
+              "cpu_pct_max": 3.3,
+              "mem_mb_max": 8.4
+            },
+            "amazing_jones": {
+              "cpu_pct_mean": 0.4,
+              "cpu_pct_max": 0.4,
+              "mem_mb_max": 24.6
+            }
+          }
+        },
+        {
+          "tool": "k6",
+          "count": 50,
+          "ok": 50,
+          "rps": 3.5853618936735465,
+          "k6_data_sent_bytes": 30900,
+          "k6_data_received_bytes": 718020,
+          "p50_ms": 13944,
+          "p95_ms": 13944,
+          "p99_ms": 13945,
+          "mean_ms": 13943.7,
+          "ttft_p50_ms": 10607,
+          "ttft_p95_ms": 10607,
+          "total_p50_ms": 13944,
+          "total_p95_ms": 13944,
+          "server_ttft_p50_ms": 10580.770685999596,
+          "server_ttft_p95_ms": 10580.770685999596,
+          "tokens_received": 4550,
+          "answers_completed": 50,
+          "wall_ms": 14548,
+          "bytes": {
+            "gateway_rx": 752266,
+            "gateway_tx": 1157143,
+            "auction-service_rx": 10468,
+            "auction-service_tx": 4342,
+            "ml-service_rx": 136115,
+            "ml-service_tx": 411192,
+            "ollama_rx": 11916,
+            "ollama_tx": 20764,
+            "postgres_rx": 4151,
+            "postgres_tx": 7324
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 3.5,
+              "cpu_pct_max": 11,
+              "mem_mb_max": 85.2
+            },
+            "ml-service": {
+              "cpu_pct_mean": 1.9,
+              "cpu_pct_max": 7,
+              "mem_mb_max": 100.6
+            },
+            "auction-service": {
+              "cpu_pct_mean": 4.8,
+              "cpu_pct_max": 18.4,
+              "mem_mb_max": 87.5
+            },
+            "postgres": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 59.4
+            },
+            "ollama": {
+              "cpu_pct_mean": 199.3,
+              "cpu_pct_max": 199.9,
+              "mem_mb_max": 1341.4
+            },
+            "api": {
+              "cpu_pct_mean": 1.4,
+              "cpu_pct_max": 2.7,
+              "mem_mb_max": 8.6
+            },
+            "priceless_clarke": {
+              "cpu_pct_mean": 3,
+              "cpu_pct_max": 11.1,
+              "mem_mb_max": 27.9
+            }
+          }
+        }
+      ],
+      "median": {
+        "answers_completed": 50,
+        "k6_data_received_bytes": 674960,
+        "k6_data_sent_bytes": 30900,
+        "mean_ms": 13640.86,
+        "p50_ms": 13641,
+        "p95_ms": 13642,
+        "p99_ms": 13642,
+        "rps": 3.665,
+        "server_ttft_p50_ms": 10570.437,
+        "server_ttft_p95_ms": 10570.437,
+        "tokens_received": 4250,
+        "total_p50_ms": 13641,
+        "total_p95_ms": 13642,
+        "ttft_p50_ms": 10603,
+        "ttft_p95_ms": 10603,
+        "wall_ms": 14132
+      },
+      "stability_metric": "ttft_p50_ms",
+      "p50_spread": 0.0636,
+      "stability_spread": 0.0075,
+      "absolute_spread_ms": 80,
+      "unstable": false
+    },
+    "fanout_50_grpc": {
+      "runs": [
+        {
+          "tool": "probe",
+          "count": 50,
+          "ok": 50,
+          "p50_ms": 13320.7539,
+          "p95_ms": 13321.6932,
+          "p99_ms": 13352.8781,
+          "mean_ms": 13321.432991999995,
+          "rps": 0,
+          "ttft_p50_ms": 10586.75665,
+          "ttft_p95_ms": 10587.6255,
+          "total_p50_ms": 13320.7539,
+          "server_ttft_p50_ms": 10540.706396997848,
+          "distinct_token_counts": 1,
+          "wall_ms": 13915,
+          "bytes": {
+            "gateway_rx": 3012,
+            "gateway_tx": 0,
+            "auction-service_rx": 10650,
+            "auction-service_tx": 4188,
+            "ml-service_rx": 141194,
+            "ml-service_tx": 328111,
+            "ollama_rx": 11269,
+            "ollama_tx": 16645,
+            "postgres_rx": 4555,
+            "postgres_tx": 7090
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 4.2,
+              "cpu_pct_max": 10.7,
+              "mem_mb_max": 78.7
+            },
+            "ml-service": {
+              "cpu_pct_mean": 5.1,
+              "cpu_pct_max": 17.7,
+              "mem_mb_max": 102.9
+            },
+            "auction-service": {
+              "cpu_pct_mean": 7.8,
+              "cpu_pct_max": 18.3,
+              "mem_mb_max": 86.4
+            },
+            "postgres": {
+              "cpu_pct_mean": 0.8,
+              "cpu_pct_max": 3.4,
+              "mem_mb_max": 60
+            },
+            "ollama": {
+              "cpu_pct_mean": 174.3,
+              "cpu_pct_max": 200,
+              "mem_mb_max": 1336.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.1,
+              "cpu_pct_max": 0.1,
+              "mem_mb_max": 8.1
+            },
+            "nostalgic_yalow": {
+              "cpu_pct_mean": 0.1,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 14.9
+            }
+          }
+        },
+        {
+          "tool": "probe",
+          "count": 50,
+          "ok": 50,
+          "p50_ms": 12915.271,
+          "p95_ms": 12915.4274,
+          "p99_ms": 12942.3957,
+          "mean_ms": 12915.80327,
+          "rps": 0,
+          "ttft_p50_ms": 10419.10265,
+          "ttft_p95_ms": 10419.273,
+          "total_p50_ms": 12915.271,
+          "server_ttft_p50_ms": 10376.134605998232,
+          "distinct_token_counts": 1,
+          "wall_ms": 13617,
+          "bytes": {
+            "gateway_rx": 2544,
+            "gateway_tx": 0,
+            "auction-service_rx": 10162,
+            "auction-service_tx": 4192,
+            "ml-service_rx": 142119,
+            "ml-service_tx": 300075,
+            "ollama_rx": 10264,
+            "ollama_tx": 15324,
+            "postgres_rx": 3948,
+            "postgres_tx": 7000
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 0.1,
+              "cpu_pct_max": 0.3,
+              "mem_mb_max": 82.2
+            },
+            "ml-service": {
+              "cpu_pct_mean": 1.3,
+              "cpu_pct_max": 4.8,
+              "mem_mb_max": 100.1
+            },
+            "auction-service": {
+              "cpu_pct_mean": 3.3,
+              "cpu_pct_max": 11,
+              "mem_mb_max": 99.4
+            },
+            "postgres": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 59.2
+            },
+            "ollama": {
+              "cpu_pct_mean": 182.2,
+              "cpu_pct_max": 200.3,
+              "mem_mb_max": 1338.4
+            },
+            "api": {
+              "cpu_pct_mean": 0.8,
+              "cpu_pct_max": 2.8,
+              "mem_mb_max": 8.6
+            },
+            "gifted_carson": {
+              "cpu_pct_mean": 0.1,
+              "cpu_pct_max": 0.1,
+              "mem_mb_max": 15.4
+            }
+          }
+        },
+        {
+          "tool": "probe",
+          "count": 50,
+          "ok": 50,
+          "p50_ms": 13624.14925,
+          "p95_ms": 13624.4816,
+          "p99_ms": 13648.4496,
+          "mean_ms": 13624.591474,
+          "rps": 0,
+          "ttft_p50_ms": 10595.9194,
+          "ttft_p95_ms": 10596.0598,
+          "total_p50_ms": 13624.14925,
+          "server_ttft_p50_ms": 10551.429614999506,
+          "distinct_token_counts": 1,
+          "wall_ms": 14283,
+          "bytes": {
+            "gateway_rx": 2544,
+            "gateway_tx": 0,
+            "auction-service_rx": 9906,
+            "auction-service_tx": 3979,
+            "ml-service_rx": 160500,
+            "ml-service_tx": 377051,
+            "ollama_rx": 11395,
+            "ollama_tx": 19051,
+            "postgres_rx": 3745,
+            "postgres_tx": 6744
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 1.9,
+              "cpu_pct_max": 5.9,
+              "mem_mb_max": 72.8
+            },
+            "ml-service": {
+              "cpu_pct_mean": 5.9,
+              "cpu_pct_max": 21.7,
+              "mem_mb_max": 98.6
+            },
+            "auction-service": {
+              "cpu_pct_mean": 7.6,
+              "cpu_pct_max": 19.6,
+              "mem_mb_max": 87.5
+            },
+            "postgres": {
+              "cpu_pct_mean": 0.8,
+              "cpu_pct_max": 2.8,
+              "mem_mb_max": 65.4
+            },
+            "ollama": {
+              "cpu_pct_mean": 169.4,
+              "cpu_pct_max": 200,
+              "mem_mb_max": 1340.4
+            },
+            "api": {
+              "cpu_pct_mean": 0.8,
+              "cpu_pct_max": 2.9,
+              "mem_mb_max": 8.9
+            },
+            "mystifying_euclid": {
+              "cpu_pct_mean": 0.1,
+              "cpu_pct_max": 0.1,
+              "mem_mb_max": 15.2
+            }
+          }
+        }
+      ],
+      "median": {
+        "mean_ms": 13321.433,
+        "p50_ms": 13320.754,
+        "p95_ms": 13321.693,
+        "p99_ms": 13352.878,
+        "rps": 0,
+        "server_ttft_p50_ms": 10540.706,
+        "total_p50_ms": 13320.754,
+        "ttft_p50_ms": 10586.757,
+        "ttft_p95_ms": 10587.626,
+        "wall_ms": 13915
+      },
+      "stability_metric": "ttft_p50_ms",
+      "p50_spread": 0.0532,
+      "stability_spread": 0.0167,
+      "absolute_spread_ms": 176.817,
+      "unstable": false
+    },
+    "fanout_50_ws": {
+      "runs": [
+        {
+          "tool": "k6",
+          "count": 50,
+          "ok": 50,
+          "rps": 3.89453089376087,
+          "k6_data_sent_bytes": 14350,
+          "k6_data_received_bytes": 69050,
+          "p50_ms": 12837,
+          "p95_ms": 12838,
+          "p99_ms": 12838,
+          "mean_ms": 12836.88,
+          "ttft_p50_ms": 10662,
+          "ttft_p95_ms": 10662,
+          "total_p50_ms": 12837,
+          "total_p95_ms": 12838,
+          "server_ttft_p50_ms": 10646.634215998347,
+          "server_ttft_p95_ms": 10646.634215998347,
+          "tokens_received": 3000,
+          "answers_completed": 50,
+          "wall_ms": 13299,
+          "bytes": {
+            "gateway_rx": 481178,
+            "gateway_tx": 370273,
+            "auction-service_rx": 10140,
+            "auction-service_tx": 4179,
+            "ml-service_rx": 98569,
+            "ml-service_tx": 277693,
+            "ollama_rx": 9877,
+            "ollama_tx": 14011,
+            "postgres_rx": 3948,
+            "postgres_tx": 6978
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 7.7,
+              "cpu_pct_max": 14.3,
+              "mem_mb_max": 90.6
+            },
+            "ml-service": {
+              "cpu_pct_mean": 2.7,
+              "cpu_pct_max": 4.3,
+              "mem_mb_max": 111.2
+            },
+            "auction-service": {
+              "cpu_pct_mean": 2.2,
+              "cpu_pct_max": 4.8,
+              "mem_mb_max": 92.2
+            },
+            "postgres": {
+              "cpu_pct_mean": 2.5,
+              "cpu_pct_max": 4,
+              "mem_mb_max": 60.7
+            },
+            "ollama": {
+              "cpu_pct_mean": 146.1,
+              "cpu_pct_max": 199.8,
+              "mem_mb_max": 1336.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.8,
+              "cpu_pct_max": 2.6,
+              "mem_mb_max": 8.4
+            },
+            "trusting_ptolemy": {
+              "cpu_pct_mean": 0.3,
+              "cpu_pct_max": 0.4,
+              "mem_mb_max": 23.1
+            }
+          }
+        },
+        {
+          "tool": "k6",
+          "count": 50,
+          "ok": 50,
+          "rps": 3.7611508028255605,
+          "k6_data_sent_bytes": 14350,
+          "k6_data_received_bytes": 80906,
+          "p50_ms": 13292,
+          "p95_ms": 13293.55,
+          "p99_ms": 13294,
+          "mean_ms": 13287.42,
+          "ttft_p50_ms": 10674,
+          "ttft_p95_ms": 10675,
+          "total_p50_ms": 13292,
+          "total_p95_ms": 13293.55,
+          "server_ttft_p50_ms": 10661.004135999974,
+          "server_ttft_p95_ms": 10661.004135999974,
+          "tokens_received": 3650,
+          "answers_completed": 50,
+          "wall_ms": 13872,
+          "bytes": {
+            "gateway_rx": 497565,
+            "gateway_tx": 419353,
+            "auction-service_rx": 10018,
+            "auction-service_tx": 3982,
+            "ml-service_rx": 96066,
+            "ml-service_tx": 333247,
+            "ollama_rx": 10728,
+            "ollama_tx": 16846,
+            "postgres_rx": 3948,
+            "postgres_tx": 7090
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 4,
+              "cpu_pct_max": 8,
+              "mem_mb_max": 90.4
+            },
+            "ml-service": {
+              "cpu_pct_mean": 1.9,
+              "cpu_pct_max": 4.3,
+              "mem_mb_max": 106.7
+            },
+            "auction-service": {
+              "cpu_pct_mean": 10.5,
+              "cpu_pct_max": 29.7,
+              "mem_mb_max": 99.3
+            },
+            "postgres": {
+              "cpu_pct_mean": 0.7,
+              "cpu_pct_max": 2.8,
+              "mem_mb_max": 59.5
+            },
+            "ollama": {
+              "cpu_pct_mean": 170.4,
+              "cpu_pct_max": 199.8,
+              "mem_mb_max": 1337.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.1,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 7.8
+            },
+            "exciting_sammet": {
+              "cpu_pct_mean": 0.7,
+              "cpu_pct_max": 1.4,
+              "mem_mb_max": 23
+            }
+          }
+        },
+        {
+          "tool": "k6",
+          "count": 50,
+          "ok": 50,
+          "rps": 3.8506753061362535,
+          "k6_data_sent_bytes": 14350,
+          "k6_data_received_bytes": 73450,
+          "p50_ms": 12984,
+          "p95_ms": 12984,
+          "p99_ms": 12984,
+          "mean_ms": 12983.54,
+          "ttft_p50_ms": 10614,
+          "ttft_p95_ms": 10615,
+          "total_p50_ms": 12984,
+          "total_p95_ms": 12984,
+          "server_ttft_p50_ms": 10601.219893000234,
+          "server_ttft_p95_ms": 10601.219893000234,
+          "tokens_received": 3300,
+          "answers_completed": 50,
+          "wall_ms": 13443,
+          "bytes": {
+            "gateway_rx": 547841,
+            "gateway_tx": 444448,
+            "auction-service_rx": 9928,
+            "auction-service_tx": 4003,
+            "ml-service_rx": 150318,
+            "ml-service_tx": 302365,
+            "ollama_rx": 10264,
+            "ollama_tx": 15288,
+            "postgres_rx": 3745,
+            "postgres_tx": 6766
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 7.4,
+              "cpu_pct_max": 17.3,
+              "mem_mb_max": 95.2
+            },
+            "ml-service": {
+              "cpu_pct_mean": 3.9,
+              "cpu_pct_max": 14.9,
+              "mem_mb_max": 96.8
+            },
+            "auction-service": {
+              "cpu_pct_mean": 14,
+              "cpu_pct_max": 48.1,
+              "mem_mb_max": 91.9
+            },
+            "postgres": {
+              "cpu_pct_mean": 1.3,
+              "cpu_pct_max": 2.9,
+              "mem_mb_max": 64.3
+            },
+            "ollama": {
+              "cpu_pct_mean": 152.3,
+              "cpu_pct_max": 199.9,
+              "mem_mb_max": 1343.5
+            },
+            "api": {
+              "cpu_pct_mean": 0.7,
+              "cpu_pct_max": 2.5,
+              "mem_mb_max": 8.1
+            },
+            "adoring_lamarr": {
+              "cpu_pct_mean": 0.3,
+              "cpu_pct_max": 0.3,
+              "mem_mb_max": 22.6
+            }
+          }
+        }
+      ],
+      "median": {
+        "answers_completed": 50,
+        "k6_data_received_bytes": 73450,
+        "k6_data_sent_bytes": 14350,
+        "mean_ms": 12983.54,
+        "p50_ms": 12984,
+        "p95_ms": 12984,
+        "p99_ms": 12984,
+        "rps": 3.851,
+        "server_ttft_p50_ms": 10646.634,
+        "server_ttft_p95_ms": 10646.634,
+        "tokens_received": 3300,
+        "total_p50_ms": 12984,
+        "total_p95_ms": 12984,
+        "ttft_p50_ms": 10662,
+        "ttft_p95_ms": 10662,
+        "wall_ms": 13443
+      },
+      "stability_metric": "ttft_p50_ms",
+      "p50_spread": 0.035,
+      "stability_spread": 0.0056,
+      "absolute_spread_ms": 60,
+      "unstable": false
+    },
+    "lots_graphql_batched": {
+      "runs": [
+        {
+          "tool": "k6",
+          "count": 500,
+          "ok": 500,
+          "rps": 281.740179170706,
+          "k6_data_sent_bytes": 107000,
+          "k6_data_received_bytes": 1062000,
+          "p50_ms": 26.534723,
+          "p95_ms": 86.14757624999999,
+          "p99_ms": 99.35644375999998,
+          "mean_ms": 34.95398248999999,
+          "wall_ms": 2339,
+          "bytes": {
+            "gateway_rx": 1170618,
+            "gateway_tx": 1513694,
+            "auction-service_rx": 31954873,
+            "auction-service_tx": 14581424,
+            "ml-service_rx": 13589835,
+            "ml-service_tx": 421219,
+            "ollama_rx": 771,
+            "ollama_tx": 0,
+            "postgres_rx": 531721,
+            "postgres_tx": 31675561
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 74.2,
+              "cpu_pct_max": 74.2,
+              "mem_mb_max": 58.7
+            },
+            "ml-service": {
+              "cpu_pct_mean": 21.7,
+              "cpu_pct_max": 21.7,
+              "mem_mb_max": 93.7
+            },
+            "auction-service": {
+              "cpu_pct_mean": 97.8,
+              "cpu_pct_max": 97.8,
+              "mem_mb_max": 76.8
+            },
+            "postgres": {
+              "cpu_pct_mean": 33.4,
+              "cpu_pct_max": 33.4,
+              "mem_mb_max": 43.1
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1334.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.2,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 7.6
+            },
+            "practical_bardeen": {
+              "cpu_pct_mean": 17,
+              "cpu_pct_max": 17,
+              "mem_mb_max": 18.2
+            }
+          },
+          "grpc_calls": {
+            "AssessLotRiskBatch": 500,
+            "ListLots": 500,
+            "total": 1000
+          }
+        },
+        {
+          "tool": "k6",
+          "count": 500,
+          "ok": 500,
+          "rps": 214.95621335270366,
+          "k6_data_sent_bytes": 107000,
+          "k6_data_received_bytes": 1062000,
+          "p50_ms": 35.6075975,
+          "p95_ms": 98.15280595,
+          "p99_ms": 127.23991484,
+          "mean_ms": 45.784506691999965,
+          "wall_ms": 2809,
+          "bytes": {
+            "gateway_rx": 1163209,
+            "gateway_tx": 1507063,
+            "auction-service_rx": 31964431,
+            "auction-service_tx": 14533268,
+            "ml-service_rx": 13550886,
+            "ml-service_tx": 423681,
+            "ollama_rx": 1028,
+            "ollama_tx": 0,
+            "postgres_rx": 530154,
+            "postgres_tx": 31687438
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 67.5,
+              "cpu_pct_max": 67.5,
+              "mem_mb_max": 54.5
+            },
+            "ml-service": {
+              "cpu_pct_mean": 19.5,
+              "cpu_pct_max": 19.5,
+              "mem_mb_max": 94.5
+            },
+            "auction-service": {
+              "cpu_pct_mean": 90,
+              "cpu_pct_max": 90,
+              "mem_mb_max": 77.5
+            },
+            "postgres": {
+              "cpu_pct_mean": 29,
+              "cpu_pct_max": 29,
+              "mem_mb_max": 42.8
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1335.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.2,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 7.6
+            },
+            "youthful_morse": {
+              "cpu_pct_mean": 15.4,
+              "cpu_pct_max": 15.4,
+              "mem_mb_max": 20.1
+            }
+          },
+          "grpc_calls": {
+            "AssessLotRiskBatch": 500,
+            "ListLots": 500,
+            "total": 1000
+          }
+        },
+        {
+          "tool": "k6",
+          "count": 500,
+          "ok": 500,
+          "rps": 162.5858291770973,
+          "k6_data_sent_bytes": 107000,
+          "k6_data_received_bytes": 1062000,
+          "p50_ms": 37.290104,
+          "p95_ms": 172.58943204999983,
+          "p99_ms": 197.84796165999998,
+          "mean_ms": 61.011914727999965,
+          "wall_ms": 3647,
+          "bytes": {
+            "gateway_rx": 1175478,
+            "gateway_tx": 1513295,
+            "auction-service_rx": 31995094,
+            "auction-service_tx": 14632610,
+            "ml-service_rx": 13605943,
+            "ml-service_tx": 426063,
+            "ollama_rx": 1028,
+            "ollama_tx": 0,
+            "postgres_rx": 561143,
+            "postgres_tx": 31712649
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 50.8,
+              "cpu_pct_max": 50.8,
+              "mem_mb_max": 57.7
+            },
+            "ml-service": {
+              "cpu_pct_mean": 12.4,
+              "cpu_pct_max": 12.4,
+              "mem_mb_max": 93.7
+            },
+            "auction-service": {
+              "cpu_pct_mean": 99.2,
+              "cpu_pct_max": 99.2,
+              "mem_mb_max": 71.3
+            },
+            "postgres": {
+              "cpu_pct_mean": 21.2,
+              "cpu_pct_max": 21.2,
+              "mem_mb_max": 44.3
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1337.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.2,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 7.6
+            },
+            "focused_engelbart": {
+              "cpu_pct_mean": 8.8,
+              "cpu_pct_max": 8.8,
+              "mem_mb_max": 17.3
+            }
+          },
+          "grpc_calls": {
+            "AssessLotRiskBatch": 500,
+            "ListLots": 500,
+            "total": 1000
+          }
+        }
+      ],
+      "median": {
+        "k6_data_received_bytes": 1062000,
+        "k6_data_sent_bytes": 107000,
+        "mean_ms": 45.785,
+        "p50_ms": 35.608,
+        "p95_ms": 98.153,
+        "p99_ms": 127.24,
+        "rps": 214.956,
+        "wall_ms": 2809
+      },
+      "stability_metric": "p50_ms",
+      "p50_spread": 0.3021,
+      "stability_spread": 0.3021,
+      "absolute_spread_ms": 10.755,
+      "unstable": true
+    },
+    "lots_graphql_naive": {
+      "runs": [
+        {
+          "tool": "k6",
+          "count": 500,
+          "ok": 500,
+          "rps": 78.6036386806544,
+          "k6_data_sent_bytes": 107000,
+          "k6_data_received_bytes": 1062000,
+          "p50_ms": 115.708162,
+          "p95_ms": 216.53000214999997,
+          "p99_ms": 269.75119725,
+          "mean_ms": 125.12064022799997,
+          "wall_ms": 6803,
+          "bytes": {
+            "gateway_rx": 2286345,
+            "gateway_tx": 4781814,
+            "auction-service_rx": 38017855,
+            "auction-service_tx": 18981501,
+            "ml-service_rx": 17239392,
+            "ml-service_tx": 2552534,
+            "ollama_rx": 2216,
+            "ollama_tx": 0,
+            "postgres_rx": 4521646,
+            "postgres_tx": 36705829
+          },
+          "resources": {
+            "ml-service": {
+              "cpu_pct_mean": 52.6,
+              "cpu_pct_max": 54.2,
+              "mem_mb_max": 108.7
+            },
+            "auction-service": {
+              "cpu_pct_mean": 81.4,
+              "cpu_pct_max": 99.4,
+              "mem_mb_max": 97.1
+            },
+            "gateway": {
+              "cpu_pct_mean": 41.8,
+              "cpu_pct_max": 49,
+              "mem_mb_max": 116
+            },
+            "postgres": {
+              "cpu_pct_mean": 81.9,
+              "cpu_pct_max": 88.8,
+              "mem_mb_max": 63.1
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1334.3
+            },
+            "api": {
+              "cpu_pct_mean": 2.8,
+              "cpu_pct_max": 5.5,
+              "mem_mb_max": 7.7
+            },
+            "happy_hermann": {
+              "cpu_pct_mean": 11,
+              "cpu_pct_max": 13.5,
+              "mem_mb_max": 18.5
+            }
+          },
+          "grpc_calls": {
+            "AssessLotRisk": 10000,
+            "ListLots": 500,
+            "total": 10500
+          }
+        },
+        {
+          "tool": "k6",
+          "count": 500,
+          "ok": 500,
+          "rps": 73.16337053717747,
+          "k6_data_sent_bytes": 107000,
+          "k6_data_received_bytes": 1062000,
+          "p50_ms": 126.3345455,
+          "p95_ms": 215.00420634999995,
+          "p99_ms": 289.85507789999997,
+          "mean_ms": 134.59379901999995,
+          "wall_ms": 7437,
+          "bytes": {
+            "gateway_rx": 2265994,
+            "gateway_tx": 4814512,
+            "auction-service_rx": 38202881,
+            "auction-service_tx": 18970400,
+            "ml-service_rx": 17259276,
+            "ml-service_tx": 2536019,
+            "ollama_rx": 2595,
+            "ollama_tx": 0,
+            "postgres_rx": 4527330,
+            "postgres_tx": 36889706
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 55,
+              "cpu_pct_max": 61.4,
+              "mem_mb_max": 105.8
+            },
+            "ml-service": {
+              "cpu_pct_mean": 71.2,
+              "cpu_pct_max": 83.2,
+              "mem_mb_max": 122.8
+            },
+            "auction-service": {
+              "cpu_pct_mean": 85.2,
+              "cpu_pct_max": 91.1,
+              "mem_mb_max": 98.6
+            },
+            "postgres": {
+              "cpu_pct_mean": 92,
+              "cpu_pct_max": 99.2,
+              "mem_mb_max": 62.6
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1335.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.3,
+              "cpu_pct_max": 0.3,
+              "mem_mb_max": 7.6
+            },
+            "nostalgic_taussig": {
+              "cpu_pct_mean": 11.2,
+              "cpu_pct_max": 13,
+              "mem_mb_max": 18
+            }
+          },
+          "grpc_calls": {
+            "AssessLotRisk": 10000,
+            "ListLots": 500,
+            "total": 10500
+          }
+        },
+        {
+          "tool": "k6",
+          "count": 500,
+          "ok": 500,
+          "rps": 71.80435347063654,
+          "k6_data_sent_bytes": 107000,
+          "k6_data_received_bytes": 1062000,
+          "p50_ms": 125.5663395,
+          "p95_ms": 272.74406899999997,
+          "p99_ms": 299.69107483999994,
+          "mean_ms": 137.22109467999996,
+          "wall_ms": 7544,
+          "bytes": {
+            "gateway_rx": 2263005,
+            "gateway_tx": 4715785,
+            "auction-service_rx": 38060408,
+            "auction-service_tx": 19001480,
+            "ml-service_rx": 17192372,
+            "ml-service_tx": 2523069,
+            "ollama_rx": 2380,
+            "ollama_tx": 0,
+            "postgres_rx": 4527456,
+            "postgres_tx": 36757139
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 40.3,
+              "cpu_pct_max": 45.1,
+              "mem_mb_max": 103.4
+            },
+            "ml-service": {
+              "cpu_pct_mean": 63.8,
+              "cpu_pct_max": 69.8,
+              "mem_mb_max": 108.4
+            },
+            "auction-service": {
+              "cpu_pct_mean": 74.4,
+              "cpu_pct_max": 83.3,
+              "mem_mb_max": 98.9
+            },
+            "postgres": {
+              "cpu_pct_mean": 101.1,
+              "cpu_pct_max": 102,
+              "mem_mb_max": 63
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1337.3
+            },
+            "api": {
+              "cpu_pct_mean": 1.6,
+              "cpu_pct_max": 2.9,
+              "mem_mb_max": 7.6
+            },
+            "objective_solomon": {
+              "cpu_pct_mean": 9.4,
+              "cpu_pct_max": 10.9,
+              "mem_mb_max": 17.8
+            }
+          },
+          "grpc_calls": {
+            "AssessLotRisk": 10000,
+            "ListLots": 500,
+            "total": 10500
+          }
+        }
+      ],
+      "median": {
+        "k6_data_received_bytes": 1062000,
+        "k6_data_sent_bytes": 107000,
+        "mean_ms": 134.594,
+        "p50_ms": 125.566,
+        "p95_ms": 216.53,
+        "p99_ms": 289.855,
+        "rps": 73.163,
+        "wall_ms": 7437
+      },
+      "stability_metric": "p50_ms",
+      "p50_spread": 0.0846,
+      "stability_spread": 0.0846,
+      "absolute_spread_ms": 10.626,
+      "unstable": false
+    },
+    "lots_grpc": {
+      "runs": [
+        {
+          "tool": "ghz",
+          "count": 4000,
+          "ok": 4000,
+          "p50_ms": 1.750112,
+          "p95_ms": 7.04383,
+          "p99_ms": 43.696886,
+          "mean_ms": 3.256977,
+          "rps": 2839.580939443849,
+          "wall_ms": 1916,
+          "bytes": {
+            "gateway_rx": 884,
+            "gateway_tx": 0,
+            "auction-service_rx": 10176841,
+            "auction-service_tx": 6666186,
+            "ml-service_rx": 884,
+            "ml-service_tx": 0,
+            "ollama_rx": 669,
+            "ollama_tx": 0,
+            "postgres_rx": 1402961,
+            "postgres_tx": 9691507
+          },
+          "resources": {
+            "ml-service": {
+              "cpu_pct_mean": 0.3,
+              "cpu_pct_max": 0.3,
+              "mem_mb_max": 97.6
+            },
+            "auction-service": {
+              "cpu_pct_mean": 105.4,
+              "cpu_pct_max": 105.4,
+              "mem_mb_max": 92.5
+            },
+            "gateway": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 110.3
+            },
+            "postgres": {
+              "cpu_pct_mean": 73.8,
+              "cpu_pct_max": 73.8,
+              "mem_mb_max": 62.6
+            },
+            "ollama": {
+              "cpu_pct_mean": 2,
+              "cpu_pct_max": 2,
+              "mem_mb_max": 1339.4
+            },
+            "api": {
+              "cpu_pct_mean": 0.2,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 7.8
+            },
+            "focused_shtern": {
+              "cpu_pct_mean": 201.8,
+              "cpu_pct_max": 201.8,
+              "mem_mb_max": 13.5
+            }
+          }
+        },
+        {
+          "tool": "ghz",
+          "count": 4000,
+          "ok": 4000,
+          "p50_ms": 1.816816,
+          "p95_ms": 9.741395,
+          "p99_ms": 68.27204,
+          "mean_ms": 3.958703,
+          "rps": 2341.026287699638,
+          "wall_ms": 2417,
+          "bytes": {
+            "gateway_rx": 669,
+            "gateway_tx": 0,
+            "auction-service_rx": 10175968,
+            "auction-service_tx": 6610847,
+            "ml-service_rx": 669,
+            "ml-service_tx": 0,
+            "ollama_rx": 669,
+            "ollama_tx": 0,
+            "postgres_rx": 1403459,
+            "postgres_tx": 9684523
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 12.3,
+              "cpu_pct_max": 12.3,
+              "mem_mb_max": 112.4
+            },
+            "ml-service": {
+              "cpu_pct_mean": 16.6,
+              "cpu_pct_max": 16.6,
+              "mem_mb_max": 98
+            },
+            "auction-service": {
+              "cpu_pct_mean": 99.2,
+              "cpu_pct_max": 99.2,
+              "mem_mb_max": 98.2
+            },
+            "postgres": {
+              "cpu_pct_mean": 78.9,
+              "cpu_pct_max": 78.9,
+              "mem_mb_max": 62.5
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1335.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.4,
+              "cpu_pct_max": 0.4,
+              "mem_mb_max": 7.8
+            },
+            "eager_euclid": {
+              "cpu_pct_mean": 190.8,
+              "cpu_pct_max": 190.8,
+              "mem_mb_max": 13.2
+            }
+          }
+        },
+        {
+          "tool": "ghz",
+          "count": 4000,
+          "ok": 4000,
+          "p50_ms": 3.534911,
+          "p95_ms": 74.813508,
+          "p99_ms": 86.137918,
+          "mean_ms": 10.780642,
+          "rps": 883.7763093208881,
+          "wall_ms": 5063,
+          "bytes": {
+            "gateway_rx": 1356,
+            "gateway_tx": 0,
+            "auction-service_rx": 10306292,
+            "auction-service_tx": 6766223,
+            "ml-service_rx": 1356,
+            "ml-service_tx": 0,
+            "ollama_rx": 1571,
+            "ollama_tx": 0,
+            "postgres_rx": 1413481,
+            "postgres_tx": 9782533
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 1.7,
+              "cpu_pct_max": 3.3,
+              "mem_mb_max": 101
+            },
+            "ml-service": {
+              "cpu_pct_mean": 2.1,
+              "cpu_pct_max": 3.7,
+              "mem_mb_max": 99
+            },
+            "auction-service": {
+              "cpu_pct_mean": 66.5,
+              "cpu_pct_max": 105.2,
+              "mem_mb_max": 108.6
+            },
+            "postgres": {
+              "cpu_pct_mean": 33.2,
+              "cpu_pct_max": 39.2,
+              "mem_mb_max": 62.6
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1337.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.4,
+              "cpu_pct_max": 0.5,
+              "mem_mb_max": 8.1
+            },
+            "lucid_wilbur": {
+              "cpu_pct_mean": 99.5,
+              "cpu_pct_max": 99.5,
+              "mem_mb_max": 14.6
+            }
+          }
+        }
+      ],
+      "median": {
+        "mean_ms": 3.959,
+        "p50_ms": 1.817,
+        "p95_ms": 9.741,
+        "p99_ms": 68.272,
+        "rps": 2341.026,
+        "wall_ms": 2417
+      },
+      "stability_metric": "p50_ms",
+      "p50_spread": 0.9824,
+      "stability_spread": 0.9824,
+      "absolute_spread_ms": 1.785,
+      "unstable": false
+    },
+    "score_batch_graphql": {
+      "runs": [
+        {
+          "tool": "k6",
+          "count": 150,
+          "ok": 150,
+          "rps": 64.3534598163976,
+          "k6_data_sent_bytes": 10555050,
+          "k6_data_received_bytes": 3371319,
+          "p50_ms": 11.818857,
+          "p95_ms": 18.68071785,
+          "p99_ms": 28.415007269999993,
+          "mean_ms": 12.821521866666663,
+          "model_inference_p50_ms": 0.454411499958951,
+          "model_inference_p95_ms": 0.7509673985623512,
+          "wall_ms": 2781,
+          "bytes": {
+            "gateway_rx": 16736395,
+            "gateway_tx": 8391321,
+            "auction-service_rx": 1047,
+            "auction-service_tx": 203,
+            "ml-service_rx": 4983607,
+            "ml-service_tx": 6129836,
+            "ollama_rx": 813,
+            "ollama_tx": 0,
+            "postgres_rx": 1395,
+            "postgres_tx": 234
+          },
+          "resources": {
+            "ml-service": {
+              "cpu_pct_mean": 55.9,
+              "cpu_pct_max": 55.9,
+              "mem_mb_max": 98.8
+            },
+            "auction-service": {
+              "cpu_pct_mean": 17.5,
+              "cpu_pct_max": 17.5,
+              "mem_mb_max": 90.2
+            },
+            "gateway": {
+              "cpu_pct_mean": 27.8,
+              "cpu_pct_max": 27.8,
+              "mem_mb_max": 120
+            },
+            "postgres": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 59.3
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1334.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.1,
+              "cpu_pct_max": 0.1,
+              "mem_mb_max": 7.6
+            },
+            "goofy_wilbur": {
+              "cpu_pct_mean": 29.1,
+              "cpu_pct_max": 29.1,
+              "mem_mb_max": 17.8
+            }
+          }
+        },
+        {
+          "tool": "k6",
+          "count": 150,
+          "ok": 150,
+          "rps": 65.18825416706821,
+          "k6_data_sent_bytes": 10555050,
+          "k6_data_received_bytes": 3371345,
+          "p50_ms": 11.5310165,
+          "p95_ms": 18.28761489999997,
+          "p99_ms": 25.766181149999962,
+          "mean_ms": 12.5829249,
+          "model_inference_p50_ms": 0.45416849934554193,
+          "model_inference_p95_ms": 0.7194658499429349,
+          "wall_ms": 2858,
+          "bytes": {
+            "gateway_rx": 16736527,
+            "gateway_tx": 8383046,
+            "auction-service_rx": 1281,
+            "auction-service_tx": 406,
+            "ml-service_rx": 4979728,
+            "ml-service_tx": 6130430,
+            "ollama_rx": 813,
+            "ollama_tx": 0,
+            "postgres_rx": 1598,
+            "postgres_tx": 468
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 28.6,
+              "cpu_pct_max": 28.6,
+              "mem_mb_max": 109.1
+            },
+            "ml-service": {
+              "cpu_pct_mean": 54.1,
+              "cpu_pct_max": 54.1,
+              "mem_mb_max": 98.4
+            },
+            "auction-service": {
+              "cpu_pct_mean": 17.1,
+              "cpu_pct_max": 17.1,
+              "mem_mb_max": 97.7
+            },
+            "postgres": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 59.3
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1335.3
+            },
+            "api": {
+              "cpu_pct_mean": 2.6,
+              "cpu_pct_max": 2.6,
+              "mem_mb_max": 8.3
+            },
+            "sharp_sanderson": {
+              "cpu_pct_mean": 30,
+              "cpu_pct_max": 30,
+              "mem_mb_max": 18.3
+            }
+          }
+        },
+        {
+          "tool": "k6",
+          "count": 150,
+          "ok": 150,
+          "rps": 63.242504207064236,
+          "k6_data_sent_bytes": 10555050,
+          "k6_data_received_bytes": 3371374,
+          "p50_ms": 11.884282,
+          "p95_ms": 20.5744375,
+          "p99_ms": 28.045571869999996,
+          "mean_ms": 13.104116940000008,
+          "model_inference_p50_ms": 0.4488025024329545,
+          "model_inference_p95_ms": 0.7784627985529368,
+          "wall_ms": 2938,
+          "bytes": {
+            "gateway_rx": 16734628,
+            "gateway_tx": 8368069,
+            "auction-service_rx": 402,
+            "auction-service_tx": 203,
+            "ml-service_rx": 4958665,
+            "ml-service_tx": 6127922,
+            "ollama_rx": 168,
+            "ollama_tx": 0,
+            "postgres_rx": 371,
+            "postgres_tx": 234
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 28.6,
+              "cpu_pct_max": 28.6,
+              "mem_mb_max": 106.8
+            },
+            "ml-service": {
+              "cpu_pct_mean": 56.4,
+              "cpu_pct_max": 56.4,
+              "mem_mb_max": 98.8
+            },
+            "auction-service": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 95.2
+            },
+            "postgres": {
+              "cpu_pct_mean": 3.4,
+              "cpu_pct_max": 3.4,
+              "mem_mb_max": 59.6
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1337.3
+            },
+            "api": {
+              "cpu_pct_mean": 2.3,
+              "cpu_pct_max": 2.3,
+              "mem_mb_max": 8.2
+            },
+            "zealous_vaughan": {
+              "cpu_pct_mean": 27.6,
+              "cpu_pct_max": 27.6,
+              "mem_mb_max": 17.5
+            }
+          }
+        }
+      ],
+      "median": {
+        "k6_data_received_bytes": 3371345,
+        "k6_data_sent_bytes": 10555050,
+        "mean_ms": 12.822,
+        "model_inference_p50_ms": 0.454,
+        "model_inference_p95_ms": 0.751,
+        "p50_ms": 11.819,
+        "p95_ms": 18.681,
+        "p99_ms": 28.046,
+        "rps": 64.353,
+        "wall_ms": 2858
+      },
+      "stability_metric": "p50_ms",
+      "p50_spread": 0.0299,
+      "stability_spread": 0.0299,
+      "absolute_spread_ms": 0.353,
+      "unstable": false
+    },
+    "score_batch_grpc": {
+      "runs": [
+        {
+          "tool": "ghz",
+          "count": 150,
+          "ok": 150,
+          "p50_ms": 10.291178,
+          "p95_ms": 18.093044,
+          "p99_ms": 22.680246,
+          "mean_ms": 11.798141,
+          "rps": 84.04650406028156,
+          "wall_ms": 2311,
+          "bytes": {
+            "gateway_rx": 126,
+            "gateway_tx": 0,
+            "auction-service_rx": 594,
+            "auction-service_tx": 406,
+            "ml-service_rx": 4997766,
+            "ml-service_tx": 6127611,
+            "ollama_rx": 126,
+            "ollama_tx": 0,
+            "postgres_rx": 329,
+            "postgres_tx": 234
+          },
+          "resources": {
+            "ml-service": {
+              "cpu_pct_mean": 83.2,
+              "cpu_pct_max": 83.2,
+              "mem_mb_max": 100.1
+            },
+            "auction-service": {
+              "cpu_pct_mean": 0.6,
+              "cpu_pct_max": 0.6,
+              "mem_mb_max": 90
+            },
+            "gateway": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 113.9
+            },
+            "postgres": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 59.5
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1334.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.2,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 7.8
+            },
+            "keen_austin": {
+              "cpu_pct_mean": 27.1,
+              "cpu_pct_max": 27.1,
+              "mem_mb_max": 14
+            }
+          }
+        },
+        {
+          "tool": "ghz",
+          "count": 150,
+          "ok": 150,
+          "p50_ms": 9.174804,
+          "p95_ms": 17.404259,
+          "p99_ms": 25.41352,
+          "mean_ms": 10.745067,
+          "rps": 92.20249538837388,
+          "wall_ms": 2150,
+          "bytes": {
+            "gateway_rx": 126,
+            "gateway_tx": 0,
+            "auction-service_rx": 126,
+            "auction-service_tx": 0,
+            "ml-service_rx": 4998798,
+            "ml-service_tx": 6128720,
+            "ollama_rx": 126,
+            "ollama_tx": 0,
+            "postgres_rx": 126,
+            "postgres_tx": 0
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 103.3
+            },
+            "ml-service": {
+              "cpu_pct_mean": 83.6,
+              "cpu_pct_max": 83.6,
+              "mem_mb_max": 101.4
+            },
+            "auction-service": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 95.3
+            },
+            "postgres": {
+              "cpu_pct_mean": 3.5,
+              "cpu_pct_max": 3.5,
+              "mem_mb_max": 60
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1335.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.1,
+              "cpu_pct_max": 0.1,
+              "mem_mb_max": 7.6
+            },
+            "silly_kirch": {
+              "cpu_pct_mean": 26.9,
+              "cpu_pct_max": 26.9,
+              "mem_mb_max": 13.1
+            }
+          }
+        },
+        {
+          "tool": "ghz",
+          "count": 150,
+          "ok": 150,
+          "p50_ms": 10.023803,
+          "p95_ms": 19.439856,
+          "p99_ms": 24.575737,
+          "mean_ms": 11.756094,
+          "rps": 84.33191968186141,
+          "wall_ms": 2357,
+          "bytes": {
+            "gateway_rx": 275,
+            "gateway_tx": 149,
+            "auction-service_rx": 594,
+            "auction-service_tx": 406,
+            "ml-service_rx": 4997568,
+            "ml-service_tx": 6127598,
+            "ollama_rx": 126,
+            "ollama_tx": 0,
+            "postgres_rx": 532,
+            "postgres_tx": 468
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 100.7
+            },
+            "ml-service": {
+              "cpu_pct_mean": 83.8,
+              "cpu_pct_max": 83.8,
+              "mem_mb_max": 100.6
+            },
+            "auction-service": {
+              "cpu_pct_mean": 17.1,
+              "cpu_pct_max": 17.1,
+              "mem_mb_max": 95.8
+            },
+            "postgres": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 59.8
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1337.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.2,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 7.6
+            },
+            "reverent_wozniak": {
+              "cpu_pct_mean": 26.4,
+              "cpu_pct_max": 26.4,
+              "mem_mb_max": 13
+            }
+          }
+        }
+      ],
+      "median": {
+        "mean_ms": 11.756,
+        "p50_ms": 10.024,
+        "p95_ms": 18.093,
+        "p99_ms": 24.576,
+        "rps": 84.332,
+        "wall_ms": 2311
+      },
+      "stability_metric": "p50_ms",
+      "p50_spread": 0.1114,
+      "stability_spread": 0.1114,
+      "absolute_spread_ms": 1.116,
+      "unstable": false
+    },
+    "score_batch_ws": {
+      "runs": [
+        {
+          "tool": "k6",
+          "count": 150,
+          "ok": 150,
+          "rps": 240.2150466592746,
+          "k6_data_sent_bytes": 10563750,
+          "k6_data_received_bytes": 189986,
+          "p50_ms": 3,
+          "p95_ms": 4,
+          "p99_ms": 5,
+          "mean_ms": 3.4466666666666668,
+          "scores_received": 150,
+          "wall_ms": 1149,
+          "bytes": {
+            "gateway_rx": 10778760,
+            "gateway_tx": 416911,
+            "auction-service_rx": 678,
+            "auction-service_tx": 0,
+            "ml-service_rx": 761,
+            "ml-service_tx": 149,
+            "ollama_rx": 678,
+            "ollama_tx": 0,
+            "postgres_rx": 678,
+            "postgres_tx": 0
+          },
+          "resources": {
+            "ml-service": {
+              "cpu_pct_mean": 3.7,
+              "cpu_pct_max": 3.7,
+              "mem_mb_max": 97.8
+            },
+            "auction-service": {
+              "cpu_pct_mean": 7.6,
+              "cpu_pct_max": 7.6,
+              "mem_mb_max": 95.6
+            },
+            "gateway": {
+              "cpu_pct_mean": 5.9,
+              "cpu_pct_max": 5.9,
+              "mem_mb_max": 111.8
+            },
+            "postgres": {
+              "cpu_pct_mean": 3.5,
+              "cpu_pct_max": 3.5,
+              "mem_mb_max": 59.6
+            },
+            "ollama": {
+              "cpu_pct_mean": 3.8,
+              "cpu_pct_max": 3.8,
+              "mem_mb_max": 1334.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.2,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 7.3
+            }
+          }
+        },
+        {
+          "tool": "k6",
+          "count": 150,
+          "ok": 150,
+          "rps": 230.65383607445096,
+          "k6_data_sent_bytes": 10563750,
+          "k6_data_received_bytes": 146954,
+          "p50_ms": 4,
+          "p95_ms": 5,
+          "p99_ms": 5,
+          "mean_ms": 3.6066666666666665,
+          "scores_received": 150,
+          "wall_ms": 1692,
+          "bytes": {
+            "gateway_rx": 10789163,
+            "gateway_tx": 400201,
+            "auction-service_rx": 912,
+            "auction-service_tx": 203,
+            "ml-service_rx": 761,
+            "ml-service_tx": 149,
+            "ollama_rx": 678,
+            "ollama_tx": 0,
+            "postgres_rx": 881,
+            "postgres_tx": 234
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 2.2,
+              "cpu_pct_max": 2.2,
+              "mem_mb_max": 101.6
+            },
+            "ml-service": {
+              "cpu_pct_mean": 4,
+              "cpu_pct_max": 4,
+              "mem_mb_max": 100.1
+            },
+            "auction-service": {
+              "cpu_pct_mean": 21,
+              "cpu_pct_max": 21,
+              "mem_mb_max": 95.8
+            },
+            "postgres": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 59.6
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1335.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.2,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 7.8
+            }
+          }
+        },
+        {
+          "tool": "k6",
+          "count": 150,
+          "ok": 150,
+          "rps": 458.27992768196094,
+          "k6_data_sent_bytes": 10563750,
+          "k6_data_received_bytes": 201162,
+          "p50_ms": 2,
+          "p95_ms": 3,
+          "p99_ms": 4,
+          "mean_ms": 1.9866666666666666,
+          "scores_received": 150,
+          "wall_ms": 905,
+          "bytes": {
+            "gateway_rx": 10766122,
+            "gateway_tx": 402511,
+            "auction-service_rx": 299,
+            "auction-service_tx": 0,
+            "ml-service_rx": 299,
+            "ml-service_tx": 0,
+            "ollama_rx": 514,
+            "ollama_tx": 0,
+            "postgres_rx": 514,
+            "postgres_tx": 0
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 5.8,
+              "cpu_pct_max": 5.8,
+              "mem_mb_max": 101.4
+            },
+            "ml-service": {
+              "cpu_pct_mean": 3.9,
+              "cpu_pct_max": 3.9,
+              "mem_mb_max": 98
+            },
+            "auction-service": {
+              "cpu_pct_mean": 6.8,
+              "cpu_pct_max": 6.8,
+              "mem_mb_max": 100.5
+            },
+            "postgres": {
+              "cpu_pct_mean": 4.1,
+              "cpu_pct_max": 4.1,
+              "mem_mb_max": 59.7
+            },
+            "ollama": {
+              "cpu_pct_mean": 3.6,
+              "cpu_pct_max": 3.6,
+              "mem_mb_max": 1337.3
+            },
+            "api": {
+              "cpu_pct_mean": 1.4,
+              "cpu_pct_max": 1.4,
+              "mem_mb_max": 12.7
+            }
+          }
+        }
+      ],
+      "median": {
+        "k6_data_received_bytes": 189986,
+        "k6_data_sent_bytes": 10563750,
+        "mean_ms": 3.447,
+        "p50_ms": 3,
+        "p95_ms": 4,
+        "p99_ms": 5,
+        "rps": 240.215,
+        "scores_received": 150,
+        "wall_ms": 1149
+      },
+      "stability_metric": "p50_ms",
+      "p50_spread": 0.6667,
+      "stability_spread": 0.6667,
+      "absolute_spread_ms": 2,
+      "unstable": false
+    },
+    "score_one_graphql": {
+      "runs": [
+        {
+          "tool": "k6",
+          "count": 2000,
+          "ok": 2000,
+          "rps": 1787.391398255039,
+          "k6_data_sent_bytes": 820210,
+          "k6_data_received_bytes": 549792,
+          "p50_ms": 4.978009999999999,
+          "p95_ms": 9.432229600000001,
+          "p99_ms": 13.13399044,
+          "mean_ms": 5.495918169000012,
+          "model_inference_p50_ms": 0.24834899886627682,
+          "model_inference_p95_ms": 0.31057189880812064,
+          "wall_ms": 1700,
+          "bytes": {
+            "gateway_rx": 1397812,
+            "gateway_tx": 1553020,
+            "auction-service_rx": 771,
+            "auction-service_tx": 0,
+            "ml-service_rx": 869980,
+            "ml-service_tx": 441600,
+            "ollama_rx": 771,
+            "ollama_tx": 0,
+            "postgres_rx": 771,
+            "postgres_tx": 0
+          },
+          "resources": {
+            "ml-service": {
+              "cpu_pct_mean": 61.7,
+              "cpu_pct_max": 61.7,
+              "mem_mb_max": 102.9
+            },
+            "auction-service": {
+              "cpu_pct_mean": 3.9,
+              "cpu_pct_max": 3.9,
+              "mem_mb_max": 90.7
+            },
+            "gateway": {
+              "cpu_pct_mean": 34.8,
+              "cpu_pct_max": 34.8,
+              "mem_mb_max": 112.8
+            },
+            "postgres": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 59.1
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1334.3
+            },
+            "api": {
+              "cpu_pct_mean": 6.7,
+              "cpu_pct_max": 6.7,
+              "mem_mb_max": 8.4
+            }
+          }
+        },
+        {
+          "tool": "k6",
+          "count": 2000,
+          "ok": 2000,
+          "rps": 1298.60481236374,
+          "k6_data_sent_bytes": 820210,
+          "k6_data_received_bytes": 549711,
+          "p50_ms": 5.1685490000000005,
+          "p95_ms": 13.627463499999998,
+          "p99_ms": 65.81170943,
+          "mean_ms": 7.581373124999997,
+          "model_inference_p50_ms": 0.2575215003162157,
+          "model_inference_p95_ms": 0.47151210092124524,
+          "wall_ms": 2154,
+          "bytes": {
+            "gateway_rx": 1462564,
+            "gateway_tx": 1624580,
+            "auction-service_rx": 884,
+            "auction-service_tx": 0,
+            "ml-service_rx": 872285,
+            "ml-service_tx": 444116,
+            "ollama_rx": 884,
+            "ollama_tx": 0,
+            "postgres_rx": 884,
+            "postgres_tx": 0
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 48.1,
+              "cpu_pct_max": 48.1,
+              "mem_mb_max": 103.8
+            },
+            "ml-service": {
+              "cpu_pct_mean": 88.4,
+              "cpu_pct_max": 88.4,
+              "mem_mb_max": 97.5
+            },
+            "auction-service": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 95.3
+            },
+            "postgres": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 59.3
+            },
+            "ollama": {
+              "cpu_pct_mean": 3.6,
+              "cpu_pct_max": 3.6,
+              "mem_mb_max": 1335.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.2,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 7.6
+            }
+          }
+        },
+        {
+          "tool": "k6",
+          "count": 2000,
+          "ok": 2000,
+          "rps": 1663.7459288001944,
+          "k6_data_sent_bytes": 820210,
+          "k6_data_received_bytes": 549702,
+          "p50_ms": 5.202408,
+          "p95_ms": 10.572141,
+          "p99_ms": 23.48432528,
+          "mean_ms": 5.916905412499999,
+          "model_inference_p50_ms": 0.2571145014371723,
+          "model_inference_p95_ms": 0.3721412498634889,
+          "wall_ms": 1786,
+          "bytes": {
+            "gateway_rx": 1425708,
+            "gateway_tx": 1581288,
+            "auction-service_rx": 1118,
+            "auction-service_tx": 203,
+            "ml-service_rx": 871027,
+            "ml-service_tx": 442108,
+            "ollama_rx": 669,
+            "ollama_tx": 0,
+            "postgres_rx": 669,
+            "postgres_tx": 0
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 32.1,
+              "cpu_pct_max": 32.1,
+              "mem_mb_max": 98.8
+            },
+            "ml-service": {
+              "cpu_pct_mean": 50.4,
+              "cpu_pct_max": 50.4,
+              "mem_mb_max": 97.4
+            },
+            "auction-service": {
+              "cpu_pct_mean": 1.6,
+              "cpu_pct_max": 1.6,
+              "mem_mb_max": 100.3
+            },
+            "postgres": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 59.4
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1337.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.2,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 7.6
+            }
+          }
+        }
+      ],
+      "median": {
+        "k6_data_received_bytes": 549711,
+        "k6_data_sent_bytes": 820210,
+        "mean_ms": 5.917,
+        "model_inference_p50_ms": 0.257,
+        "model_inference_p95_ms": 0.372,
+        "p50_ms": 5.169,
+        "p95_ms": 10.572,
+        "p99_ms": 23.484,
+        "rps": 1663.746,
+        "wall_ms": 1786
+      },
+      "stability_metric": "p50_ms",
+      "p50_spread": 0.0434,
+      "stability_spread": 0.0434,
+      "absolute_spread_ms": 0.224,
+      "unstable": false
+    },
+    "score_one_grpc": {
+      "runs": [
+        {
+          "tool": "ghz",
+          "count": 2000,
+          "ok": 2000,
+          "p50_ms": 4.981571,
+          "p95_ms": 15.493568,
+          "p99_ms": 18.848182,
+          "mean_ms": 5.89371,
+          "rps": 1666.6951782655165,
+          "wall_ms": 1698,
+          "bytes": {
+            "gateway_rx": 341,
+            "gateway_tx": 0,
+            "auction-service_rx": 341,
+            "auction-service_tx": 0,
+            "ml-service_rx": 541769,
+            "ml-service_tx": 611724,
+            "ollama_rx": 341,
+            "ollama_tx": 0,
+            "postgres_rx": 759,
+            "postgres_tx": 234
+          },
+          "resources": {
+            "ml-service": {
+              "cpu_pct_mean": 45.1,
+              "cpu_pct_max": 45.1,
+              "mem_mb_max": 97.4
+            },
+            "auction-service": {
+              "cpu_pct_mean": 3.8,
+              "cpu_pct_max": 3.8,
+              "mem_mb_max": 90.9
+            },
+            "gateway": {
+              "cpu_pct_mean": 4.5,
+              "cpu_pct_max": 4.5,
+              "mem_mb_max": 109.8
+            },
+            "postgres": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 59
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1334.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.1,
+              "cpu_pct_max": 0.1,
+              "mem_mb_max": 7.8
+            }
+          }
+        },
+        {
+          "tool": "ghz",
+          "count": 2000,
+          "ok": 2000,
+          "p50_ms": 4.95987,
+          "p95_ms": 14.023675,
+          "p99_ms": 17.850381,
+          "mean_ms": 5.825326,
+          "rps": 1686.0161381452024,
+          "wall_ms": 1646,
+          "bytes": {
+            "gateway_rx": 341,
+            "gateway_tx": 0,
+            "auction-service_rx": 341,
+            "auction-service_tx": 0,
+            "ml-service_rx": 536277,
+            "ml-service_tx": 609820,
+            "ollama_rx": 341,
+            "ollama_tx": 0,
+            "postgres_rx": 759,
+            "postgres_tx": 234
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 13.7,
+              "cpu_pct_max": 13.7,
+              "mem_mb_max": 104.2
+            },
+            "ml-service": {
+              "cpu_pct_mean": 41.5,
+              "cpu_pct_max": 41.5,
+              "mem_mb_max": 99.1
+            },
+            "auction-service": {
+              "cpu_pct_mean": 21.9,
+              "cpu_pct_max": 21.9,
+              "mem_mb_max": 96.7
+            },
+            "postgres": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 59.3
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1335.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.2,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 7.6
+            }
+          }
+        },
+        {
+          "tool": "ghz",
+          "count": 2000,
+          "ok": 2000,
+          "p50_ms": 5.123631,
+          "p95_ms": 15.218294,
+          "p99_ms": 65.852785,
+          "mean_ms": 7.198226,
+          "rps": 1366.8623912463115,
+          "wall_ms": 2023,
+          "bytes": {
+            "gateway_rx": 556,
+            "gateway_tx": 0,
+            "auction-service_rx": 556,
+            "auction-service_tx": 0,
+            "ml-service_rx": 538674,
+            "ml-service_tx": 612672,
+            "ollama_rx": 556,
+            "ollama_tx": 0,
+            "postgres_rx": 556,
+            "postgres_tx": 0
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 0.1,
+              "cpu_pct_max": 0.1,
+              "mem_mb_max": 92.3
+            },
+            "ml-service": {
+              "cpu_pct_mean": 72.1,
+              "cpu_pct_max": 72.1,
+              "mem_mb_max": 97.6
+            },
+            "auction-service": {
+              "cpu_pct_mean": 0.1,
+              "cpu_pct_max": 0.1,
+              "mem_mb_max": 95.1
+            },
+            "postgres": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 59.4
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1337.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.2,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 7.6
+            }
+          }
+        }
+      ],
+      "median": {
+        "mean_ms": 5.894,
+        "p50_ms": 4.982,
+        "p95_ms": 15.218,
+        "p99_ms": 18.848,
+        "rps": 1666.695,
+        "wall_ms": 1698
+      },
+      "stability_metric": "p50_ms",
+      "p50_spread": 0.0329,
+      "stability_spread": 0.0329,
+      "absolute_spread_ms": 0.164,
+      "unstable": false
+    },
+    "score_one_ws": {
+      "runs": [
+        {
+          "tool": "k6",
+          "count": 2000,
+          "ok": 2000,
+          "rps": 1561.2307767049815,
+          "k6_data_sent_bytes": 732210,
+          "k6_data_received_bytes": 523682,
+          "p50_ms": 5,
+          "p95_ms": 11,
+          "p99_ms": 16.00999999999999,
+          "mean_ms": 6.054,
+          "scores_received": 2000,
+          "wall_ms": 1755,
+          "bytes": {
+            "gateway_rx": 2252445,
+            "gateway_tx": 2079233,
+            "auction-service_rx": 1169,
+            "auction-service_tx": 203,
+            "ml-service_rx": 876946,
+            "ml-service_tx": 447564,
+            "ollama_rx": 935,
+            "ollama_tx": 0,
+            "postgres_rx": 1138,
+            "postgres_tx": 234
+          },
+          "resources": {
+            "ml-service": {
+              "cpu_pct_mean": 53.6,
+              "cpu_pct_max": 53.6,
+              "mem_mb_max": 97.6
+            },
+            "auction-service": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 89.7
+            },
+            "gateway": {
+              "cpu_pct_mean": 45.9,
+              "cpu_pct_max": 45.9,
+              "mem_mb_max": 106.9
+            },
+            "postgres": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 59
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1334.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.2,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 7.3
+            }
+          }
+        },
+        {
+          "tool": "k6",
+          "count": 2000,
+          "ok": 2000,
+          "rps": 1350.8310741995049,
+          "k6_data_sent_bytes": 732207,
+          "k6_data_received_bytes": 523722,
+          "p50_ms": 5,
+          "p95_ms": 15,
+          "p99_ms": 53,
+          "mean_ms": 6.944,
+          "scores_received": 2000,
+          "wall_ms": 2023,
+          "bytes": {
+            "gateway_rx": 2256217,
+            "gateway_tx": 2087472,
+            "auction-service_rx": 524,
+            "auction-service_tx": 203,
+            "ml-service_rx": 880846,
+            "ml-service_tx": 451918,
+            "ollama_rx": 290,
+            "ollama_tx": 0,
+            "postgres_rx": 493,
+            "postgres_tx": 234
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 62.6,
+              "cpu_pct_max": 62.6,
+              "mem_mb_max": 99.3
+            },
+            "ml-service": {
+              "cpu_pct_mean": 75.8,
+              "cpu_pct_max": 75.8,
+              "mem_mb_max": 97.6
+            },
+            "auction-service": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 95.3
+            },
+            "postgres": {
+              "cpu_pct_mean": 4.4,
+              "cpu_pct_max": 4.4,
+              "mem_mb_max": 63.5
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1335.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.2,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 7.3
+            }
+          }
+        },
+        {
+          "tool": "k6",
+          "count": 2000,
+          "ok": 2000,
+          "rps": 1624.51987396351,
+          "k6_data_sent_bytes": 732210,
+          "k6_data_received_bytes": 523659,
+          "p50_ms": 5,
+          "p95_ms": 11,
+          "p99_ms": 17,
+          "mean_ms": 5.831,
+          "scores_received": 2000,
+          "wall_ms": 1783,
+          "bytes": {
+            "gateway_rx": 2252215,
+            "gateway_tx": 2078235,
+            "auction-service_rx": 524,
+            "auction-service_tx": 203,
+            "ml-service_rx": 877966,
+            "ml-service_tx": 447913,
+            "ollama_rx": 290,
+            "ollama_tx": 0,
+            "postgres_rx": 493,
+            "postgres_tx": 234
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 44.7,
+              "cpu_pct_max": 44.7,
+              "mem_mb_max": 94
+            },
+            "ml-service": {
+              "cpu_pct_mean": 56.9,
+              "cpu_pct_max": 56.9,
+              "mem_mb_max": 97.5
+            },
+            "auction-service": {
+              "cpu_pct_mean": 23.9,
+              "cpu_pct_max": 23.9,
+              "mem_mb_max": 97.4
+            },
+            "postgres": {
+              "cpu_pct_mean": 4.8,
+              "cpu_pct_max": 4.8,
+              "mem_mb_max": 59.7
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1337.3
+            },
+            "api": {
+              "cpu_pct_mean": 2.3,
+              "cpu_pct_max": 2.3,
+              "mem_mb_max": 8.3
+            }
+          }
+        }
+      ],
+      "median": {
+        "k6_data_received_bytes": 523682,
+        "k6_data_sent_bytes": 732210,
+        "mean_ms": 6.054,
+        "p50_ms": 5,
+        "p95_ms": 11,
+        "p99_ms": 17,
+        "rps": 1561.231,
+        "scores_received": 2000,
+        "wall_ms": 1783
+      },
+      "stability_metric": "p50_ms",
+      "p50_spread": 0,
+      "stability_spread": 0,
+      "absolute_spread_ms": 0,
+      "unstable": false
+    },
+    "score_serial_graphql": {
+      "runs": [
+        {
+          "tool": "k6",
+          "count": 500,
+          "ok": 500,
+          "rps": 686.015836637172,
+          "k6_data_sent_bytes": 205060,
+          "k6_data_received_bytes": 137311,
+          "p50_ms": 1.013197,
+          "p95_ms": 2.755567049999997,
+          "p99_ms": 3.63441494,
+          "mean_ms": 1.342459036000001,
+          "model_inference_p50_ms": 0.3293234985903837,
+          "model_inference_p95_ms": 0.8426570520896342,
+          "wall_ms": 1279,
+          "bytes": {
+            "gateway_rx": 349494,
+            "gateway_tx": 388636,
+            "auction-service_rx": 482,
+            "auction-service_tx": 203,
+            "ml-service_rx": 217801,
+            "ml-service_tx": 110254,
+            "ollama_rx": 248,
+            "ollama_tx": 0,
+            "postgres_rx": 248,
+            "postgres_tx": 0
+          },
+          "resources": {
+            "ml-service": {
+              "cpu_pct_mean": 48.4,
+              "cpu_pct_max": 48.4,
+              "mem_mb_max": 100
+            },
+            "auction-service": {
+              "cpu_pct_mean": 3.4,
+              "cpu_pct_max": 3.4,
+              "mem_mb_max": 89.9
+            },
+            "gateway": {
+              "cpu_pct_mean": 6,
+              "cpu_pct_max": 6,
+              "mem_mb_max": 113.8
+            },
+            "postgres": {
+              "cpu_pct_mean": 9.9,
+              "cpu_pct_max": 9.9,
+              "mem_mb_max": 60.4
+            },
+            "ollama": {
+              "cpu_pct_mean": 4.2,
+              "cpu_pct_max": 4.2,
+              "mem_mb_max": 1335.3
+            },
+            "api": {
+              "cpu_pct_mean": 2.9,
+              "cpu_pct_max": 2.9,
+              "mem_mb_max": 7.6
+            }
+          }
+        },
+        {
+          "tool": "k6",
+          "count": 500,
+          "ok": 500,
+          "rps": 690.1317898026078,
+          "k6_data_sent_bytes": 205060,
+          "k6_data_received_bytes": 137324,
+          "p50_ms": 0.999147,
+          "p95_ms": 2.8770526499999995,
+          "p99_ms": 3.5271234099999997,
+          "mean_ms": 1.331888388000001,
+          "model_inference_p50_ms": 0.318211999911,
+          "model_inference_p95_ms": 0.9333018026154605,
+          "wall_ms": 1240,
+          "bytes": {
+            "gateway_rx": 355072,
+            "gateway_tx": 394206,
+            "auction-service_rx": 84,
+            "auction-service_tx": 0,
+            "ml-service_rx": 217382,
+            "ml-service_tx": 110254,
+            "ollama_rx": 84,
+            "ollama_tx": 0,
+            "postgres_rx": 84,
+            "postgres_tx": 0
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 24,
+              "cpu_pct_max": 24,
+              "mem_mb_max": 101.2
+            },
+            "ml-service": {
+              "cpu_pct_mean": 48.5,
+              "cpu_pct_max": 48.5,
+              "mem_mb_max": 97.3
+            },
+            "auction-service": {
+              "cpu_pct_mean": 0.1,
+              "cpu_pct_max": 0.1,
+              "mem_mb_max": 95.3
+            },
+            "postgres": {
+              "cpu_pct_mean": 4.7,
+              "cpu_pct_max": 4.7,
+              "mem_mb_max": 59.3
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1335.3
+            },
+            "api": {
+              "cpu_pct_mean": 2.4,
+              "cpu_pct_max": 2.4,
+              "mem_mb_max": 7.8
+            }
+          }
+        },
+        {
+          "tool": "k6",
+          "count": 500,
+          "ok": 500,
+          "rps": 608.3687326977118,
+          "k6_data_sent_bytes": 205060,
+          "k6_data_received_bytes": 137266,
+          "p50_ms": 1.405392,
+          "p95_ms": 2.7651649999999997,
+          "p99_ms": 3.2622971499999998,
+          "mean_ms": 1.5209275860000018,
+          "model_inference_p50_ms": 0.4748470000777161,
+          "model_inference_p95_ms": 0.8916404492993021,
+          "wall_ms": 1359,
+          "bytes": {
+            "gateway_rx": 348868,
+            "gateway_tx": 388022,
+            "auction-service_rx": 318,
+            "auction-service_tx": 203,
+            "ml-service_rx": 217609,
+            "ml-service_tx": 110337,
+            "ollama_rx": 84,
+            "ollama_tx": 0,
+            "postgres_rx": 287,
+            "postgres_tx": 234
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 26.1,
+              "cpu_pct_max": 26.1,
+              "mem_mb_max": 100.7
+            },
+            "ml-service": {
+              "cpu_pct_mean": 55,
+              "cpu_pct_max": 55,
+              "mem_mb_max": 97.2
+            },
+            "auction-service": {
+              "cpu_pct_mean": 18.7,
+              "cpu_pct_max": 18.7,
+              "mem_mb_max": 95.4
+            },
+            "postgres": {
+              "cpu_pct_mean": 3.8,
+              "cpu_pct_max": 3.8,
+              "mem_mb_max": 59.4
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1337.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.2,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 7.3
+            }
+          }
+        }
+      ],
+      "median": {
+        "k6_data_received_bytes": 137311,
+        "k6_data_sent_bytes": 205060,
+        "mean_ms": 1.342,
+        "model_inference_p50_ms": 0.329,
+        "model_inference_p95_ms": 0.892,
+        "p50_ms": 1.013,
+        "p95_ms": 2.765,
+        "p99_ms": 3.527,
+        "rps": 686.016,
+        "wall_ms": 1279
+      },
+      "stability_metric": "p50_ms",
+      "p50_spread": 0.401,
+      "stability_spread": 0.401,
+      "absolute_spread_ms": 0.406,
+      "unstable": false
+    },
+    "score_serial_grpc": {
+      "runs": [
+        {
+          "tool": "ghz",
+          "count": 500,
+          "ok": 500,
+          "p50_ms": 1.432169,
+          "p95_ms": 2.572678,
+          "p99_ms": 3.52322,
+          "mean_ms": 1.85196,
+          "rps": 479.1749599273887,
+          "wall_ms": 1540,
+          "bytes": {
+            "gateway_rx": 669,
+            "gateway_tx": 0,
+            "auction-service_rx": 669,
+            "auction-service_tx": 0,
+            "ml-service_rx": 135414,
+            "ml-service_tx": 153104,
+            "ollama_rx": 669,
+            "ollama_tx": 0,
+            "postgres_rx": 669,
+            "postgres_tx": 0
+          },
+          "resources": {
+            "ml-service": {
+              "cpu_pct_mean": 24.1,
+              "cpu_pct_max": 24.1,
+              "mem_mb_max": 99.1
+            },
+            "auction-service": {
+              "cpu_pct_mean": 3.9,
+              "cpu_pct_max": 3.9,
+              "mem_mb_max": 90.5
+            },
+            "gateway": {
+              "cpu_pct_mean": 4.1,
+              "cpu_pct_max": 4.1,
+              "mem_mb_max": 106.1
+            },
+            "postgres": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 59
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1334.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.2,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 7.6
+            }
+          }
+        },
+        {
+          "tool": "ghz",
+          "count": 500,
+          "ok": 500,
+          "p50_ms": 1.343743,
+          "p95_ms": 2.176896,
+          "p99_ms": 2.314963,
+          "mean_ms": 1.349048,
+          "rps": 640.5492768467054,
+          "wall_ms": 1299,
+          "bytes": {
+            "gateway_rx": 233,
+            "gateway_tx": 83,
+            "auction-service_rx": 84,
+            "auction-service_tx": 0,
+            "ml-service_rx": 134637,
+            "ml-service_tx": 153038,
+            "ollama_rx": 84,
+            "ollama_tx": 0,
+            "postgres_rx": 84,
+            "postgres_tx": 0
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 3.3,
+              "cpu_pct_max": 3.3,
+              "mem_mb_max": 99.3
+            },
+            "ml-service": {
+              "cpu_pct_mean": 9.6,
+              "cpu_pct_max": 9.6,
+              "mem_mb_max": 98.6
+            },
+            "auction-service": {
+              "cpu_pct_mean": 7,
+              "cpu_pct_max": 7,
+              "mem_mb_max": 100.6
+            },
+            "postgres": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 59.3
+            },
+            "ollama": {
+              "cpu_pct_mean": 4,
+              "cpu_pct_max": 4,
+              "mem_mb_max": 1337.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.2,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 7.8
+            }
+          }
+        },
+        {
+          "tool": "ghz",
+          "count": 500,
+          "ok": 500,
+          "p50_ms": 1.353633,
+          "p95_ms": 2.338736,
+          "p99_ms": 2.673435,
+          "mean_ms": 1.401609,
+          "rps": 614.6119706019048,
+          "wall_ms": 1362,
+          "bytes": {
+            "gateway_rx": 84,
+            "gateway_tx": 0,
+            "auction-service_rx": 84,
+            "auction-service_tx": 0,
+            "ml-service_rx": 134646,
+            "ml-service_tx": 153104,
+            "ollama_rx": 84,
+            "ollama_tx": 0,
+            "postgres_rx": 84,
+            "postgres_tx": 0
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 2.2,
+              "cpu_pct_max": 2.2,
+              "mem_mb_max": 93.1
+            },
+            "ml-service": {
+              "cpu_pct_mean": 28.8,
+              "cpu_pct_max": 28.8,
+              "mem_mb_max": 97.3
+            },
+            "auction-service": {
+              "cpu_pct_mean": 2.3,
+              "cpu_pct_max": 2.3,
+              "mem_mb_max": 95.1
+            },
+            "postgres": {
+              "cpu_pct_mean": 4.1,
+              "cpu_pct_max": 4.1,
+              "mem_mb_max": 65.2
+            },
+            "ollama": {
+              "cpu_pct_mean": 4.3,
+              "cpu_pct_max": 4.3,
+              "mem_mb_max": 1338.4
+            },
+            "api": {
+              "cpu_pct_mean": 0.2,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 7.6
+            }
+          }
+        }
+      ],
+      "median": {
+        "mean_ms": 1.402,
+        "p50_ms": 1.354,
+        "p95_ms": 2.339,
+        "p99_ms": 2.673,
+        "rps": 614.612,
+        "wall_ms": 1362
+      },
+      "stability_metric": "p50_ms",
+      "p50_spread": 0.0653,
+      "stability_spread": 0.0653,
+      "absolute_spread_ms": 0.088,
+      "unstable": false
+    },
+    "score_serial_ws": {
+      "runs": [
+        {
+          "tool": "k6",
+          "count": 1,
+          "ok": 1,
+          "rps": 1.8300874119108241,
+          "k6_data_sent_bytes": 79767,
+          "k6_data_received_bytes": 39495,
+          "p50_ms": 1,
+          "p95_ms": 2,
+          "p99_ms": 3,
+          "mean_ms": 1.058,
+          "scores_received": 500,
+          "wall_ms": 974,
+          "bytes": {
+            "gateway_rx": 223641,
+            "gateway_tx": 290251,
+            "auction-service_rx": 84,
+            "auction-service_tx": 0,
+            "ml-service_rx": 217526,
+            "ml-service_tx": 110320,
+            "ollama_rx": 84,
+            "ollama_tx": 0,
+            "postgres_rx": 84,
+            "postgres_tx": 0
+          },
+          "resources": {
+            "ml-service": {
+              "cpu_pct_mean": 40.8,
+              "cpu_pct_max": 40.8,
+              "mem_mb_max": 97.4
+            },
+            "auction-service": {
+              "cpu_pct_mean": 3.6,
+              "cpu_pct_max": 3.6,
+              "mem_mb_max": 95.3
+            },
+            "gateway": {
+              "cpu_pct_mean": 17.1,
+              "cpu_pct_max": 17.1,
+              "mem_mb_max": 115.6
+            },
+            "postgres": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 59
+            },
+            "ollama": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0,
+              "mem_mb_max": 1334.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.2,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 7.6
+            }
+          }
+        },
+        {
+          "tool": "k6",
+          "count": 1,
+          "ok": 1,
+          "rps": 1.8895820820756986,
+          "k6_data_sent_bytes": 79767,
+          "k6_data_received_bytes": 39487,
+          "p50_ms": 1,
+          "p95_ms": 2,
+          "p99_ms": 3,
+          "mean_ms": 1.04,
+          "scores_received": 500,
+          "wall_ms": 1061,
+          "bytes": {
+            "gateway_rx": 223641,
+            "gateway_tx": 290418,
+            "auction-service_rx": 84,
+            "auction-service_tx": 0,
+            "ml-service_rx": 217701,
+            "ml-service_tx": 110320,
+            "ollama_rx": 84,
+            "ollama_tx": 0,
+            "postgres_rx": 84,
+            "postgres_tx": 0
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 7.6,
+              "cpu_pct_max": 7.6,
+              "mem_mb_max": 104.8
+            },
+            "ml-service": {
+              "cpu_pct_mean": 3.6,
+              "cpu_pct_max": 3.6,
+              "mem_mb_max": 97.5
+            },
+            "auction-service": {
+              "cpu_pct_mean": 0.1,
+              "cpu_pct_max": 0.1,
+              "mem_mb_max": 95.2
+            },
+            "postgres": {
+              "cpu_pct_mean": 4.5,
+              "cpu_pct_max": 4.5,
+              "mem_mb_max": 59.8
+            },
+            "ollama": {
+              "cpu_pct_mean": 3.2,
+              "cpu_pct_max": 3.2,
+              "mem_mb_max": 1336.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.2,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 7.6
+            }
+          }
+        },
+        {
+          "tool": "k6",
+          "count": 1,
+          "ok": 1,
+          "rps": 1.9715908661415946,
+          "k6_data_sent_bytes": 79767,
+          "k6_data_received_bytes": 39508,
+          "p50_ms": 1,
+          "p95_ms": 2,
+          "p99_ms": 2,
+          "mean_ms": 0.988,
+          "scores_received": 500,
+          "wall_ms": 983,
+          "bytes": {
+            "gateway_rx": 223641,
+            "gateway_tx": 290490,
+            "auction-service_rx": 84,
+            "auction-service_tx": 0,
+            "ml-service_rx": 217752,
+            "ml-service_tx": 110320,
+            "ollama_rx": 84,
+            "ollama_tx": 0,
+            "postgres_rx": 84,
+            "postgres_tx": 0
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 7.9,
+              "cpu_pct_max": 7.9,
+              "mem_mb_max": 102
+            },
+            "ml-service": {
+              "cpu_pct_mean": 4,
+              "cpu_pct_max": 4,
+              "mem_mb_max": 97.7
+            },
+            "auction-service": {
+              "cpu_pct_mean": 4.3,
+              "cpu_pct_max": 4.3,
+              "mem_mb_max": 95.1
+            },
+            "postgres": {
+              "cpu_pct_mean": 4,
+              "cpu_pct_max": 4,
+              "mem_mb_max": 60
+            },
+            "ollama": {
+              "cpu_pct_mean": 3.9,
+              "cpu_pct_max": 3.9,
+              "mem_mb_max": 1337.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.2,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 7.6
+            }
+          }
+        }
+      ],
+      "median": {
+        "k6_data_received_bytes": 39495,
+        "k6_data_sent_bytes": 79767,
+        "mean_ms": 1.04,
+        "p50_ms": 1,
+        "p95_ms": 2,
+        "p99_ms": 3,
+        "rps": 1.89,
+        "scores_received": 500,
+        "wall_ms": 983
+      },
+      "stability_metric": "p50_ms",
+      "p50_spread": 0,
+      "stability_spread": 0,
+      "absolute_spread_ms": 0,
+      "unstable": false
+    },
+    "stream_one_graphql": {
+      "runs": [
+        {
+          "tool": "k6",
+          "count": 1,
+          "ok": 1,
+          "rps": 0.07905230676139843,
+          "k6_data_sent_bytes": 617,
+          "k6_data_received_bytes": 10423,
+          "p50_ms": 12649,
+          "p95_ms": 12649,
+          "p99_ms": 12649,
+          "mean_ms": 12649,
+          "ttft_p50_ms": 10270,
+          "ttft_p95_ms": 10270,
+          "total_p50_ms": 12649,
+          "total_p95_ms": 12649,
+          "server_ttft_p50_ms": 10198.133940000844,
+          "server_ttft_p95_ms": 10198.133940000844,
+          "tokens_received": 65,
+          "answers_completed": 1,
+          "wall_ms": 13084,
+          "bytes": {
+            "gateway_rx": 14307,
+            "gateway_tx": 20226,
+            "auction-service_rx": 10016,
+            "auction-service_tx": 3952,
+            "ml-service_rx": 25380,
+            "ml-service_tx": 14612,
+            "ollama_rx": 10194,
+            "ollama_tx": 15122,
+            "postgres_rx": 3745,
+            "postgres_tx": 6854
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 4.4,
+              "cpu_pct_max": 15.9,
+              "mem_mb_max": 78.8
+            },
+            "ml-service": {
+              "cpu_pct_mean": 1.1,
+              "cpu_pct_max": 3.8,
+              "mem_mb_max": 101.2
+            },
+            "auction-service": {
+              "cpu_pct_mean": 6.1,
+              "cpu_pct_max": 19,
+              "mem_mb_max": 87
+            },
+            "postgres": {
+              "cpu_pct_mean": 1.7,
+              "cpu_pct_max": 3.7,
+              "mem_mb_max": 59.9
+            },
+            "ollama": {
+              "cpu_pct_mean": 150.7,
+              "cpu_pct_max": 200.1,
+              "mem_mb_max": 1335.3
+            },
+            "api": {
+              "cpu_pct_mean": 1.5,
+              "cpu_pct_max": 3,
+              "mem_mb_max": 9
+            },
+            "funny_kalam": {
+              "cpu_pct_mean": 0.4,
+              "cpu_pct_max": 0.4,
+              "mem_mb_max": 11.9
+            }
+          }
+        },
+        {
+          "tool": "k6",
+          "count": 1,
+          "ok": 1,
+          "rps": 0.07535143530029581,
+          "k6_data_sent_bytes": 618,
+          "k6_data_received_bytes": 12330,
+          "p50_ms": 13271,
+          "p95_ms": 13271,
+          "p99_ms": 13271,
+          "mean_ms": 13271,
+          "ttft_p50_ms": 10311,
+          "ttft_p95_ms": 10311,
+          "total_p50_ms": 13271,
+          "total_p95_ms": 13271,
+          "server_ttft_p50_ms": 10238.688831999752,
+          "server_ttft_p95_ms": 10238.688831999752,
+          "tokens_received": 77,
+          "answers_completed": 1,
+          "wall_ms": 13804,
+          "bytes": {
+            "gateway_rx": 15561,
+            "gateway_tx": 22512,
+            "auction-service_rx": 10422,
+            "auction-service_tx": 4335,
+            "ml-service_rx": 27868,
+            "ml-service_tx": 16446,
+            "ollama_rx": 11067,
+            "ollama_tx": 17801,
+            "postgres_rx": 3948,
+            "postgres_tx": 7260
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 8.9,
+              "cpu_pct_max": 23.7,
+              "mem_mb_max": 77.1
+            },
+            "ml-service": {
+              "cpu_pct_mean": 4.7,
+              "cpu_pct_max": 17,
+              "mem_mb_max": 99.9
+            },
+            "auction-service": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0.1,
+              "mem_mb_max": 88.2
+            },
+            "postgres": {
+              "cpu_pct_mean": 0.1,
+              "cpu_pct_max": 0.5,
+              "mem_mb_max": 59.2
+            },
+            "ollama": {
+              "cpu_pct_mean": 186.1,
+              "cpu_pct_max": 200.5,
+              "mem_mb_max": 1337.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.7,
+              "cpu_pct_max": 2.5,
+              "mem_mb_max": 8
+            },
+            "musing_jones": {
+              "cpu_pct_mean": 0.4,
+              "cpu_pct_max": 0.4,
+              "mem_mb_max": 11.8
+            }
+          }
+        },
+        {
+          "tool": "k6",
+          "count": 1,
+          "ok": 1,
+          "rps": 0.07851068798695268,
+          "k6_data_sent_bytes": 617,
+          "k6_data_received_bytes": 10894,
+          "p50_ms": 12737,
+          "p95_ms": 12737,
+          "p99_ms": 12737,
+          "mean_ms": 12737,
+          "ttft_p50_ms": 10277,
+          "ttft_p95_ms": 10277,
+          "total_p50_ms": 12737,
+          "total_p95_ms": 12737,
+          "server_ttft_p50_ms": 10203.666043998965,
+          "server_ttft_p95_ms": 10203.666043998965,
+          "tokens_received": 68,
+          "answers_completed": 1,
+          "wall_ms": 13254,
+          "bytes": {
+            "gateway_rx": 14728,
+            "gateway_tx": 20745,
+            "auction-service_rx": 10388,
+            "auction-service_tx": 4302,
+            "ml-service_rx": 25996,
+            "ml-service_tx": 15006,
+            "ollama_rx": 10389,
+            "ollama_tx": 15769,
+            "postgres_rx": 3948,
+            "postgres_tx": 7226
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 1.8,
+              "cpu_pct_max": 7,
+              "mem_mb_max": 70.5
+            },
+            "ml-service": {
+              "cpu_pct_mean": 5.3,
+              "cpu_pct_max": 17.3,
+              "mem_mb_max": 99.1
+            },
+            "auction-service": {
+              "cpu_pct_mean": 1.3,
+              "cpu_pct_max": 5.1,
+              "mem_mb_max": 84.9
+            },
+            "postgres": {
+              "cpu_pct_mean": 1.7,
+              "cpu_pct_max": 3.5,
+              "mem_mb_max": 60.5
+            },
+            "ollama": {
+              "cpu_pct_mean": 150.7,
+              "cpu_pct_max": 200.1,
+              "mem_mb_max": 1339.4
+            },
+            "api": {
+              "cpu_pct_mean": 1.4,
+              "cpu_pct_max": 5,
+              "mem_mb_max": 8.3
+            },
+            "adoring_lamport": {
+              "cpu_pct_mean": 0.4,
+              "cpu_pct_max": 0.7,
+              "mem_mb_max": 12.6
+            }
+          }
+        }
+      ],
+      "median": {
+        "answers_completed": 1,
+        "k6_data_received_bytes": 10894,
+        "k6_data_sent_bytes": 617,
+        "mean_ms": 12737,
+        "p50_ms": 12737,
+        "p95_ms": 12737,
+        "p99_ms": 12737,
+        "rps": 0.079,
+        "server_ttft_p50_ms": 10203.666,
+        "server_ttft_p95_ms": 10203.666,
+        "tokens_received": 68,
+        "total_p50_ms": 12737,
+        "total_p95_ms": 12737,
+        "ttft_p50_ms": 10277,
+        "ttft_p95_ms": 10277,
+        "wall_ms": 13254
+      },
+      "stability_metric": "ttft_p50_ms",
+      "p50_spread": 0.0488,
+      "stability_spread": 0.004,
+      "absolute_spread_ms": 41,
+      "unstable": false
+    },
+    "stream_one_grpc": {
+      "runs": [
+        {
+          "tool": "probe",
+          "count": 1,
+          "ok": 1,
+          "p50_ms": 16538.3317,
+          "p95_ms": 16538.3317,
+          "p99_ms": 16538.3317,
+          "mean_ms": 16538.3317,
+          "rps": 0,
+          "ttft_p50_ms": 14220.5486,
+          "ttft_p95_ms": 14220.5486,
+          "total_p50_ms": 16538.3317,
+          "server_ttft_p50_ms": 14160.868040002242,
+          "distinct_token_counts": 1,
+          "wall_ms": 17058,
+          "bytes": {
+            "gateway_rx": 2608,
+            "gateway_tx": 0,
+            "auction-service_rx": 10723,
+            "auction-service_tx": 4506,
+            "ml-service_rx": 25789,
+            "ml-service_tx": 15541,
+            "ollama_rx": 10108,
+            "ollama_tx": 15183,
+            "postgres_rx": 4139,
+            "postgres_tx": 7694
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 13.2,
+              "cpu_pct_max": 61.8,
+              "mem_mb_max": 69.7
+            },
+            "ml-service": {
+              "cpu_pct_mean": 4.6,
+              "cpu_pct_max": 16.6,
+              "mem_mb_max": 102.1
+            },
+            "auction-service": {
+              "cpu_pct_mean": 9.9,
+              "cpu_pct_max": 29.9,
+              "mem_mb_max": 81.8
+            },
+            "postgres": {
+              "cpu_pct_mean": 1.2,
+              "cpu_pct_max": 3.6,
+              "mem_mb_max": 61
+            },
+            "ollama": {
+              "cpu_pct_mean": 160.7,
+              "cpu_pct_max": 200.2,
+              "mem_mb_max": 1339.4
+            },
+            "api": {
+              "cpu_pct_mean": 0.3,
+              "cpu_pct_max": 1.1,
+              "mem_mb_max": 8.6
+            },
+            "nervous_northcutt": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 11.9
+            }
+          }
+        },
+        {
+          "tool": "probe",
+          "count": 1,
+          "ok": 1,
+          "p50_ms": 16458.971,
+          "p95_ms": 16458.971,
+          "p99_ms": 16458.971,
+          "mean_ms": 16458.971,
+          "rps": 0,
+          "ttft_p50_ms": 14155.56,
+          "ttft_p95_ms": 14155.56,
+          "total_p50_ms": 16458.971,
+          "server_ttft_p50_ms": 14092.69788399979,
+          "distinct_token_counts": 1,
+          "wall_ms": 16970,
+          "bytes": {
+            "gateway_rx": 2593,
+            "gateway_tx": 83,
+            "auction-service_rx": 10721,
+            "auction-service_tx": 4555,
+            "ml-service_rx": 25188,
+            "ml-service_tx": 15457,
+            "ollama_rx": 9881,
+            "ollama_tx": 14966,
+            "postgres_rx": 3975,
+            "postgres_tx": 7556
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 3.4,
+              "cpu_pct_max": 13.6,
+              "mem_mb_max": 73.1
+            },
+            "ml-service": {
+              "cpu_pct_mean": 2.8,
+              "cpu_pct_max": 7.7,
+              "mem_mb_max": 105
+            },
+            "auction-service": {
+              "cpu_pct_mean": 11.5,
+              "cpu_pct_max": 30.4,
+              "mem_mb_max": 88.6
+            },
+            "postgres": {
+              "cpu_pct_mean": 1.4,
+              "cpu_pct_max": 3.4,
+              "mem_mb_max": 59.5
+            },
+            "ollama": {
+              "cpu_pct_mean": 160.7,
+              "cpu_pct_max": 200,
+              "mem_mb_max": 1338.4
+            },
+            "api": {
+              "cpu_pct_mean": 0.7,
+              "cpu_pct_max": 2.7,
+              "mem_mb_max": 8.3
+            },
+            "inspiring_torvalds": {
+              "cpu_pct_mean": 0,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 12.1
+            }
+          }
+        },
+        {
+          "tool": "probe",
+          "count": 1,
+          "ok": 1,
+          "p50_ms": 17624.2296,
+          "p95_ms": 17624.2296,
+          "p99_ms": 17624.2296,
+          "mean_ms": 17624.2296,
+          "rps": 0,
+          "ttft_p50_ms": 14291.9556,
+          "ttft_p95_ms": 14291.9556,
+          "total_p50_ms": 17624.2296,
+          "server_ttft_p50_ms": 14235.542171001725,
+          "distinct_token_counts": 1,
+          "wall_ms": 18777,
+          "bytes": {
+            "gateway_rx": 2972,
+            "gateway_tx": 149,
+            "auction-service_rx": 11272,
+            "auction-service_tx": 4765,
+            "ml-service_rx": 33442,
+            "ml-service_tx": 19742,
+            "ollama_rx": 12119,
+            "ollama_tx": 21112,
+            "postgres_rx": 4354,
+            "postgres_tx": 7728
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 9.7,
+              "cpu_pct_max": 34.7,
+              "mem_mb_max": 64
+            },
+            "ml-service": {
+              "cpu_pct_mean": 1.5,
+              "cpu_pct_max": 5.2,
+              "mem_mb_max": 100.8
+            },
+            "auction-service": {
+              "cpu_pct_mean": 8.6,
+              "cpu_pct_max": 21,
+              "mem_mb_max": 83.4
+            },
+            "postgres": {
+              "cpu_pct_mean": 0.8,
+              "cpu_pct_max": 3.2,
+              "mem_mb_max": 61.5
+            },
+            "ollama": {
+              "cpu_pct_mean": 199.4,
+              "cpu_pct_max": 200,
+              "mem_mb_max": 1344.5
+            },
+            "api": {
+              "cpu_pct_mean": 0.6,
+              "cpu_pct_max": 2.3,
+              "mem_mb_max": 7.9
+            },
+            "romantic_mestorf": {
+              "cpu_pct_mean": 1.8,
+              "cpu_pct_max": 9,
+              "mem_mb_max": 21.3
+            }
+          }
+        }
+      ],
+      "median": {
+        "mean_ms": 16538.332,
+        "p50_ms": 16538.332,
+        "p95_ms": 16538.332,
+        "p99_ms": 16538.332,
+        "rps": 0,
+        "server_ttft_p50_ms": 14160.868,
+        "total_p50_ms": 16538.332,
+        "ttft_p50_ms": 14220.549,
+        "ttft_p95_ms": 14220.549,
+        "wall_ms": 17058
+      },
+      "stability_metric": "ttft_p50_ms",
+      "p50_spread": 0.0705,
+      "stability_spread": 0.0096,
+      "absolute_spread_ms": 136.396,
+      "unstable": false
+    },
+    "stream_one_ws": {
+      "runs": [
+        {
+          "tool": "k6",
+          "count": 1,
+          "ok": 1,
+          "rps": 0.07670014448392785,
+          "k6_data_sent_bytes": 287,
+          "k6_data_received_bytes": 1561,
+          "p50_ms": 13037,
+          "p95_ms": 13037,
+          "p99_ms": 13037,
+          "mean_ms": 13037,
+          "ttft_p50_ms": 10479,
+          "ttft_p95_ms": 10479,
+          "total_p50_ms": 13037,
+          "total_p95_ms": 13037,
+          "server_ttft_p50_ms": 10455.080972998985,
+          "server_ttft_p95_ms": 10455.080972998985,
+          "tokens_received": 68,
+          "answers_completed": 1,
+          "wall_ms": 13421,
+          "bytes": {
+            "gateway_rx": 14467,
+            "gateway_tx": 11257,
+            "auction-service_rx": 10935,
+            "auction-service_tx": 4565,
+            "ml-service_rx": 26155,
+            "ml-service_tx": 14970,
+            "ollama_rx": 10403,
+            "ollama_tx": 15790,
+            "postgres_rx": 3948,
+            "postgres_tx": 7260
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 2.3,
+              "cpu_pct_max": 5.5,
+              "mem_mb_max": 83.8
+            },
+            "ml-service": {
+              "cpu_pct_mean": 4.5,
+              "cpu_pct_max": 16.6,
+              "mem_mb_max": 101.2
+            },
+            "auction-service": {
+              "cpu_pct_mean": 8.2,
+              "cpu_pct_max": 18.4,
+              "mem_mb_max": 89.1
+            },
+            "postgres": {
+              "cpu_pct_mean": 0.8,
+              "cpu_pct_max": 2.8,
+              "mem_mb_max": 64
+            },
+            "ollama": {
+              "cpu_pct_mean": 174.5,
+              "cpu_pct_max": 200,
+              "mem_mb_max": 1335.3
+            },
+            "api": {
+              "cpu_pct_mean": 0.1,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 8
+            },
+            "elastic_bell": {
+              "cpu_pct_mean": 0.4,
+              "cpu_pct_max": 0.4,
+              "mem_mb_max": 11.6
+            }
+          }
+        },
+        {
+          "tool": "k6",
+          "count": 1,
+          "ok": 1,
+          "rps": 0.0775386665724545,
+          "k6_data_sent_bytes": 286,
+          "k6_data_received_bytes": 1527,
+          "p50_ms": 12897,
+          "p95_ms": 12897,
+          "p99_ms": 12897,
+          "mean_ms": 12897,
+          "ttft_p50_ms": 10389,
+          "ttft_p95_ms": 10389,
+          "total_p50_ms": 12897,
+          "total_p95_ms": 12897,
+          "server_ttft_p50_ms": 10366.862377999496,
+          "server_ttft_p95_ms": 10366.862377999496,
+          "tokens_received": 67,
+          "answers_completed": 1,
+          "wall_ms": 13409,
+          "bytes": {
+            "gateway_rx": 13378,
+            "gateway_tx": 10694,
+            "auction-service_rx": 10901,
+            "auction-service_tx": 4478,
+            "ml-service_rx": 25301,
+            "ml-service_tx": 14788,
+            "ollama_rx": 10323,
+            "ollama_tx": 15552,
+            "postgres_rx": 4151,
+            "postgres_tx": 7460
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 4.7,
+              "cpu_pct_max": 11.4,
+              "mem_mb_max": 79.9
+            },
+            "ml-service": {
+              "cpu_pct_mean": 5.3,
+              "cpu_pct_max": 14.8,
+              "mem_mb_max": 116
+            },
+            "auction-service": {
+              "cpu_pct_mean": 3.4,
+              "cpu_pct_max": 13,
+              "mem_mb_max": 90.6
+            },
+            "postgres": {
+              "cpu_pct_mean": 1.3,
+              "cpu_pct_max": 2.8,
+              "mem_mb_max": 59.8
+            },
+            "ollama": {
+              "cpu_pct_mean": 150.8,
+              "cpu_pct_max": 201.5,
+              "mem_mb_max": 1348.6
+            },
+            "api": {
+              "cpu_pct_mean": 0.1,
+              "cpu_pct_max": 0.2,
+              "mem_mb_max": 7.6
+            },
+            "compassionate_ride": {
+              "cpu_pct_mean": 0.4,
+              "cpu_pct_max": 0.4,
+              "mem_mb_max": 11.5
+            }
+          }
+        },
+        {
+          "tool": "k6",
+          "count": 1,
+          "ok": 1,
+          "rps": 0.07840603712937333,
+          "k6_data_sent_bytes": 286,
+          "k6_data_received_bytes": 1482,
+          "p50_ms": 12754,
+          "p95_ms": 12754,
+          "p99_ms": 12754,
+          "mean_ms": 12754,
+          "ttft_p50_ms": 10334,
+          "ttft_p95_ms": 10334,
+          "total_p50_ms": 12754,
+          "total_p95_ms": 12754,
+          "server_ttft_p50_ms": 10312.403488002019,
+          "server_ttft_p95_ms": 10312.403488002019,
+          "tokens_received": 66,
+          "answers_completed": 1,
+          "wall_ms": 13186,
+          "bytes": {
+            "gateway_rx": 13591,
+            "gateway_tx": 10459,
+            "auction-service_rx": 10529,
+            "auction-service_tx": 4163,
+            "ml-service_rx": 24953,
+            "ml-service_tx": 14620,
+            "ollama_rx": 10260,
+            "ollama_tx": 15312,
+            "postgres_rx": 3948,
+            "postgres_tx": 7088
+          },
+          "resources": {
+            "gateway": {
+              "cpu_pct_mean": 4.9,
+              "cpu_pct_max": 18.4,
+              "mem_mb_max": 73
+            },
+            "ml-service": {
+              "cpu_pct_mean": 4.9,
+              "cpu_pct_max": 19.1,
+              "mem_mb_max": 100
+            },
+            "auction-service": {
+              "cpu_pct_mean": 2.5,
+              "cpu_pct_max": 7.8,
+              "mem_mb_max": 86.3
+            },
+            "postgres": {
+              "cpu_pct_mean": 0.7,
+              "cpu_pct_max": 2.8,
+              "mem_mb_max": 60.1
+            },
+            "ollama": {
+              "cpu_pct_mean": 161.7,
+              "cpu_pct_max": 199.7,
+              "mem_mb_max": 1340.4
+            },
+            "api": {
+              "cpu_pct_mean": 1.7,
+              "cpu_pct_max": 3.3,
+              "mem_mb_max": 9.1
+            },
+            "zealous_hoover": {
+              "cpu_pct_mean": 0.3,
+              "cpu_pct_max": 0.3,
+              "mem_mb_max": 11.4
+            }
+          }
+        }
+      ],
+      "median": {
+        "answers_completed": 1,
+        "k6_data_received_bytes": 1527,
+        "k6_data_sent_bytes": 286,
+        "mean_ms": 12897,
+        "p50_ms": 12897,
+        "p95_ms": 12897,
+        "p99_ms": 12897,
+        "rps": 0.078,
+        "server_ttft_p50_ms": 10366.862,
+        "server_ttft_p95_ms": 10366.862,
+        "tokens_received": 67,
+        "total_p50_ms": 12897,
+        "total_p95_ms": 12897,
+        "ttft_p50_ms": 10389,
+        "ttft_p95_ms": 10389,
+        "wall_ms": 13409
+      },
+      "stability_metric": "ttft_p50_ms",
+      "p50_spread": 0.0219,
+      "stability_spread": 0.014,
+      "absolute_spread_ms": 145,
+      "unstable": false
+    }
+  }
+}
